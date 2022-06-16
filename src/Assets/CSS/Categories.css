@@ -1,0 +1,35 @@
+/* ====== categories css start ======== */
+.categories-container {
+  /* height: 70vh; */
+}
+.category-item {
+  position: relative;
+}
+.category-item img {
+  object-fit: cover;
+  width: 100%;
+}
+.category-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-info h1 {
+  color: #f9f9f9;
+}
+.category-info button {
+  border: none;
+  padding: 10px;
+  background-color: white;
+  color: gray;
+  cursor: pointer;
+  font-weight: 600;
+}
+/* ====== categories css end ======== */
