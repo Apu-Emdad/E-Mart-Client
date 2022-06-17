@@ -13,16 +13,16 @@ const Product = ({ product }) => {
         <div className="product-img">
           <img src={img} alt="" className="img-fluid  " />
         </div>
-        <div className="square"></div>
+        <div className="product-square"></div>
 
         <div className="product-info">
-          <div className="icon">
+          <div className="product-icon">
             <ShoppingCartOutlined />
           </div>
-          <div className="icon">
+          <div className="product-icon">
             <SearchOutlined />
           </div>
-          <div className="icon">
+          <div className="product-icon">
             <FavoriteBorderOutlined />
           </div>
         </div>

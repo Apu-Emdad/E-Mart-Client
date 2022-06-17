@@ -25,7 +25,7 @@
   display: block;
 }
 
-.square {
+.product-square {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -54,7 +54,7 @@
   border-radius: 5px;
 }
 
-.icon {
+.product-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -66,7 +66,7 @@
   transition: all 0.5s ease;
 }
 
-.icon:hover {
+.product-icon:hover {
   background-color: #e9f5f5;
   transform: scale(1.5);
 }

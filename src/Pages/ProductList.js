@@ -5,13 +5,13 @@ import NewsLetter from "../Components/NewsLetter";
 import Products from "../Components/Products";
 const ProductList = () => {
   return (
-    <div>
+    <div className="productList">
       <Header />
-      <h1 className="title">Dresses</h1>
-      <div className="filter-container">
-        <div className="filter">
-          <span className="filter-text">Filter Products</span>
-          <select name="" id="" className="filter-select">
+      <h1 className="productList-title">Dresses</h1>
+      <div className="productList-filter-container">
+        <div className="productList-filter">
+          <span className="productList-filter-text">Filter Products</span>
+          <select name="" id="" className="productList-filter-select">
             <option value="" disabled selected>
               Color
             </option>
@@ -32,9 +32,9 @@ const ProductList = () => {
             <option value="xl">XL</option>
           </select>
         </div>
-        <div className="filter">
-          <span className="filter-text">Sort Products</span>
-          <select name="" id="" className="filter-select">
+        <div className="productList-filter">
+          <span className="productList-filter-text">Sort Products</span>
+          <select name="" id="" className="productList-filter-select">
             <option value="" disabled selected>
               Newest
             </option>

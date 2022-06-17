@@ -1,42 +1,42 @@
 /* ===== ProductList css start ===== */
-* {
+.productList {
   text-align: left;
 }
-.title {
+.productList-title {
   margin: 10px 20px;
   font-weight: 700;
 }
 
-.filter-container {
+.productList-filter-container {
   display: flex;
   justify-content: space-between;
 }
 
-.filter {
+.productList-filter {
   margin: 10px 20px;
   display: flex;
 }
 
-.filter-text {
+.productList-filter-text {
   font-size: 20px;
   margin-right: 20px;
   align-self: center;
 }
-.filter-select {
+.productList-filter-select {
   margin-right: 20px;
   padding: 10px;
   border: 1px solid black;
 }
 
 @media screen and (max-width: 420px) {
-  .filter {
+  .productList-filter {
     flex-direction: column;
     margin-right: 0px;
   }
-  .filter-text {
+  .productList-filter-text {
     align-self: flex-start;
   }
-  .filter-select {
+  .productList-filter-select {
     margin: 10px 0px 5px;
 
     width: 100px;
