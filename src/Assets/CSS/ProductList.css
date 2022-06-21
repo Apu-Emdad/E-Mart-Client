@@ -41,4 +41,7 @@
 
     width: 100px;
   }
+  .productList-sort {
+    align-self: flex-end;
+  }
 }

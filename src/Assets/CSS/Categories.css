@@ -22,7 +22,7 @@
 }
 
 .category-info h1 {
-  color: #f9f9f9;
+  color: rgba(250, 251, 250, 0.85);
 }
 .category-info button {
   border: none;

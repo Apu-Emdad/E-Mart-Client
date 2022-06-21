@@ -37,6 +37,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
 }
 
 .singleProduct-filter {
@@ -67,7 +68,7 @@
 .singleProduct-add-container {
   text-align: left;
   display: flex;
-  width: 50%;
+  width: 60%;
   justify-content: space-between;
   align-items: center;
 }
@@ -116,10 +117,11 @@
   .singleProduct-filter-container {
     width: 100%;
     justify-content: space-around;
+    gap: 0px;
   }
   .singleProduct-add-container {
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
 /* ==== Media query end ==== */

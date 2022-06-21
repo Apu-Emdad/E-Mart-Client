@@ -21,7 +21,7 @@ const ProductList = () => {
             <option value="yellow">Yellow</option>
             <option value="green">Green</option>
           </select>
-          <select name="" id="" className="filter-select">
+          <select name="" id="" className="productList-filter-select">
             <option value="" disabled selected>
               Size
             </option>
@@ -32,7 +32,7 @@ const ProductList = () => {
             <option value="xl">XL</option>
           </select>
         </div>
-        <div className="productList-filter">
+        <div className="productList-filter productList-sort">
           <span className="productList-filter-text">Sort Products</span>
           <select name="" id="" className="productList-filter-select">
             <option value="" disabled selected>
