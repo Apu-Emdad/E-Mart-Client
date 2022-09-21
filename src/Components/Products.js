@@ -9,11 +9,11 @@ const Products = ({ category, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   /* main code */
-  useEffect(() => {
+  /* useEffect(() => {
     const getProdcuts = async () => {
       try {
         const res = await axios.get(
-          category === "All"
+          category
             ? `http://localhost:5000/e-mart/products`
             : `http://localhost:5000/e-mart/products?category=${category}`
         );
@@ -24,9 +24,9 @@ const Products = ({ category, filters, sort }) => {
     };
     getProdcuts();
   }, [category]);
-
+ */
   /* test code */
-  /* useEffect(() => {
+  useEffect(() => {
     const abortController = new AbortController();
     const getProdcuts = async () => {
       try {
@@ -48,7 +48,7 @@ const Products = ({ category, filters, sort }) => {
       // Here it'll abort the fetch
       abortController.abort();
     };
-  }, [category]); */
+  }, [category]);
 
   useEffect(() => {
     /*  if (category) {
@@ -61,15 +61,15 @@ const Products = ({ category, filters, sort }) => {
         products.filter((product) => handleProducts(filterArray, product))
       );
     } */
+    if (filters) {
+      const filterArray = Object.entries(filters);
+      const handleProducts = (array, product) =>
+        array.every(([key, value]) => product[key].includes(value));
 
-    const filterArray = Object.entries(filters);
-
-    const handleProducts = (array, product) =>
-      array.every(([key, value]) => product[key].includes(value));
-
-    setFilteredProducts(
-      products.filter((product) => handleProducts(filterArray, product))
-    );
+      setFilteredProducts(
+        products.filter((product) => handleProducts(filterArray, product))
+      );
+    }
   }, [category, filters, products]);
 
   useEffect(() => {
@@ -87,17 +87,22 @@ const Products = ({ category, filters, sort }) => {
       );
     }
   }, [sort]);
-  console.log(filters);
+  /*   console.log(filters);
   console.log(filteredProducts);
-  console.log(sort);
-  console.log("category:", category);
+  console.log(sort); */
+  // console.log("category:", category);
+  console.log(filters);
 
   return (
     <div>
       <div className="container-fluid row justify-content-around g-0  ">
-        {filteredProducts.map((product) => (
-          <Product product={product} key={product._id} />
-        ))}
+        {category
+          ? filteredProducts.map((product) => (
+              <Product product={product} key={product._id} />
+            ))
+          : products.map((product) => (
+              <Product product={product} key={product._id} />
+            ))}
       </div>
     </div>
   );

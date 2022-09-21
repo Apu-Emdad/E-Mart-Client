@@ -27,7 +27,9 @@ const ProductList = () => {
   return (
     <div className="productList">
       <Header />
-      <h1 className="productList-title">{category.toUpperCase()}</h1>
+      <h1 className="productList-title">
+        {category ? category.toUpperCase() : "Products"}
+      </h1>
       <div className="productList-filter-container">
         {/* ==== Filter ===== */}
         <div className="productList-filter">

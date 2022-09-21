@@ -11,7 +11,7 @@ const Home = () => {
       <Header />
       <Banner />
       <Categories />
-      <Products category="All" />
+      <Products />
       <NewsLetter />
     </div>
   );
