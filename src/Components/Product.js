@@ -6,12 +6,13 @@ import {
 } from "@material-ui/icons";
 
 const Product = ({ product }) => {
-  const { name, img } = product;
+  const { title, img } = product;
   return (
     <div className="col-md-6 col-lg-4 col-sm-6  product-container  ">
       <div className="product-content">
         <div className="product-img">
-          <img src={img} alt="" className="img-fluid  " />
+          <img src={img} alt="" className="img-fluid d-block  " />
+          <p>{title}</p>
         </div>
         <div className="product-square"></div>
 

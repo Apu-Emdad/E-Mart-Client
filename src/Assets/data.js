@@ -25,16 +25,19 @@ export const categoryData = [
     id: 1,
     img: "https://i.ibb.co/SKJq4T2/laughing-black-man-glasses-expressing-excitement-emotional-international-student-holding-computer-19.webp",
     title: "Casual",
+    category: "casual",
   },
   {
     id: 2,
     img: "https://i.ibb.co/f0dqdth/happy-black-man-with-toothy-smile-earring-thick-beard-pointing-273609-37036.webp",
     title: "Warm",
+    category: "warm",
   },
   {
     id: 3,
     img: "https://i.ibb.co/XDwf9zP/attractive-kind-cute-young-man-gently-smiling-dressed-beautiful-denim-shirt.webp",
     title: "Formal",
+    category: "formal",
   },
 ];
 

@@ -15,7 +15,7 @@ const Header = () => {
       sticky="top"
     >
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/home">
           <b>E-Mart</b>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -36,9 +36,9 @@ const Header = () => {
             </NavDropdown>
           </Nav> */}
           <Nav className="ms-auto">
-            <Nav.Link href="#register">Register</Nav.Link>
-            <Nav.Link href="#signin">Sign In</Nav.Link>
-            <Nav.Link href="#cart">
+            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link href="/login">Sign In</Nav.Link>
+            <Nav.Link href="/cart">
               <Badge badgeContent={4} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
