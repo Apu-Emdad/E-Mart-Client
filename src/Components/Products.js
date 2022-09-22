@@ -92,11 +92,12 @@ const Products = ({ category, filters, sort }) => {
   console.log(sort); */
   // console.log("category:", category);
   console.log(filters);
+  console.log(products);
 
   return (
     <div>
       <div className="container-fluid row justify-content-around g-0  ">
-        {category
+        {filters
           ? filteredProducts.map((product) => (
               <Product product={product} key={product._id} />
             ))
