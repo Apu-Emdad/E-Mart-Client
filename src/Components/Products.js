@@ -8,24 +8,8 @@ import axios from "axios";
 const Products = ({ category, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  /* main code */
-  /* useEffect(() => {
-    const getProdcuts = async () => {
-      try {
-        const res = await axios.get(
-          category
-            ? `http://localhost:5000/e-mart/products`
-            : `http://localhost:5000/e-mart/products?category=${category}`
-        );
-        setProducts(res.data);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    getProdcuts();
-  }, [category]);
- */
-  /* test code */
+
+  /* main code using aborcontroller*/
   useEffect(() => {
     const abortController = new AbortController();
     const getProdcuts = async () => {
@@ -46,21 +30,33 @@ const Products = ({ category, filters, sort }) => {
     return () => {
       // Function returned from useEffect is called on unmount
       // Here it'll abort the fetch
+      console.log("unmounted");
       abortController.abort();
     };
   }, [category]);
 
+  /* test code using boolean*/
+  /* useEffect(() => {
+    let isSet = true;
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          category
+            ? `http://localhost:5000/e-mart/products?category=${category}`
+            : `http://localhost:5000/e-mart/products`
+        );
+        isSet && setProducts(res.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    getProducts();
+    return () => {
+      isSet = false;
+    };
+  }, [category]); */
+
   useEffect(() => {
-    /*  if (category) {
-      const filterArray = Object.entries(filters);
-
-      const handleProducts = (array, product) =>
-        array.every(([key, value]) => product[key].includes(value));
-
-      setFilteredProducts(
-        products.filter((product) => handleProducts(filterArray, product))
-      );
-    } */
     if (filters) {
       const filterArray = Object.entries(filters);
       const handleProducts = (array, product) =>
