@@ -5,16 +5,10 @@ import SingleProduct from "./Pages/SingleProduct";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Cart from "./Pages/Cart";
-import {
-  BrowserRouter,
-  Routes,
-  Navigate,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Navigate, Route } from "react-router-dom";
 
 function App() {
-  const user = false;
+  const user = true;
 
   return (
     <div className="App">
@@ -24,7 +18,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/products/*" element={<ProductList />} />
           <Route path="/products/:category" element={<ProductList />} />
-          <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/product/:productId" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route
             path="/login"

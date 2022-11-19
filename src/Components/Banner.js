@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import { bannerData } from "../Assets/data";
 

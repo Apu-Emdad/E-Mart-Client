@@ -4,9 +4,10 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  const { title, img, price, colors } = product;
+  const { title, img, price, colors, _id } = product;
 
   return (
     <div className="col-md-6 col-lg-4 col-sm-6  product-container  ">
@@ -22,9 +23,14 @@ const Product = ({ product }) => {
           <div className="product-icon">
             <ShoppingCartOutlined />
           </div>
-          <div className="product-icon">
-            <SearchOutlined />
-          </div>
+          <Link
+            to={`/product/${_id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <div className="product-icon">
+              <SearchOutlined />
+            </div>
+          </Link>
           <div className="product-icon">
             <FavoriteBorderOutlined />
           </div>

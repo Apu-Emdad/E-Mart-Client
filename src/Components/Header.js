@@ -39,7 +39,7 @@ const Header = () => {
             <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/login">Sign In</Nav.Link>
             <Nav.Link href="/cart">
-              <Badge badgeContent={4} color="primary">
+              <Badge badgeContent={4} color="primary" overlap="rectangular">
                 <ShoppingCartOutlined />
               </Badge>
             </Nav.Link>

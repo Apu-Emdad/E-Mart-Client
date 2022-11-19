@@ -1,71 +1,109 @@
 import { Add, Remove } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "../Assets/CSS/SingleProduct.css";
 import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
+import { publicRequest } from "../requestMethods";
 const SingleProduct = () => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get(`/products/find/${productId}`);
+        setProduct(res.data);
+      } catch {}
+    };
+
+    getProduct();
+  }, [productId]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleColor = (c) => setColor(c);
+  const handleSize = (e) => setSize(e.target.value);
+
   return (
     <div>
       <Header />
       <div className="singleProduct-container">
         <div className="singleProduct-image">
-          <img
-            src="https://i.ibb.co/mFcLG7Q/product4.png"
-            alt=""
-            className="img-fluid"
-          />
+          <img src={product.img} alt="" className="img-fluid" />
         </div>
         <div className="singleProduct-info">
-          <h1 className="singleProduct-title">Yellow Long Sleeve Shirt</h1>
+          <h1 className="singleProduct-title">{product.title}</h1>
 
-          <p className="singleProduct-description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam
-            maiores magni accusantium perspiciatis, dolore eligendi suscipit
-            porro a quasi atque est quaerat voluptatem eveniet eaque, itaque
-            iusto, dolores rem rerum? Fuga omnis quaerat eveniet repellendus
-            accusamus voluptatem reiciendis velit expedita quia provident,
-            soluta corrupti dolore non perferendis facilis beatae. Dolore.
-          </p>
+          <p className="singleProduct-description">{product.desc}</p>
 
           {/* ==== Price ==== */}
-          <span className="singleProduct-price">$ 50</span>
+          <span className="singleProduct-price">$ {product.price}</span>
 
           {/* === Filter ==== */}
           <div className="singleProduct-filter-container">
             {/* ==== Filter Color ==== */}
             <div className="singleProduct-filter">
               <span className="singleProduct-filter-title">Color</span>
-              <div
-                style={{ backgroundColor: "black" }}
-                className="singleProduct-filter-color"
-              />
-              <div
-                style={{ backgroundColor: "darkblue" }}
-                className="singleProduct-filter-color"
-              />
-              <div
-                style={{ backgroundColor: "gray" }}
-                className="singleProduct-filter-color"
-              />
+
+              {product.color?.map(
+                (c) =>
+                  c !== "All" && (
+                    <div
+                      key={c}
+                      style={{ backgroundColor: c }}
+                      className="singleProduct-filter-color"
+                      onClick={() => handleColor(c)}
+                    />
+                  )
+              )}
             </div>
             {/* ==== Filter Size ==== */}
             <div className="singleProduct-filter">
               <span className="singleProduct-filter-title">Size</span>
-              <select className="singleProduct-filter-size">
-                <option className="singleProduct-filter-size-option">XS</option>
-                <option className="singleProduct-filter-size-option">S</option>
-                <option className="singleProduct-filter-size-option">M</option>
-                <option className="singleProduct-filter-size-option">L</option>
-                <option className="singleProduct-filter-size-option">XL</option>
+
+              <select
+                className="singleProduct-filter-size"
+                onChange={(e) => handleSize(e)}
+              >
+                <option className="singleProduct-filter-size-option">
+                  Select
+                </option>
+                {product.size?.map(
+                  (s) =>
+                    s !== "ALL" && (
+                      <option
+                        className="singleProduct-filter-size-option"
+                        key={s}
+                      >
+                        {s}
+                      </option>
+                    )
+                )}
               </select>
             </div>
           </div>
           {/* ==== Amount  ==== */}
           <div className="singleProduct-add-container">
             <div className="singleProduct-amount-container">
-              <Remove />
-              <span className="singleProduct-amount">1</span>
-              <Add />
+              <Remove
+                onClick={() => handleQuantity("dec")}
+                style={{ cursor: "pointer" }}
+              />
+              <span className="singleProduct-amount">{quantity}</span>
+              <Add
+                onClick={() => handleQuantity("inc")}
+                style={{ cursor: "pointer" }}
+              />
             </div>
             <button>ADD TO CART</button>
           </div>
