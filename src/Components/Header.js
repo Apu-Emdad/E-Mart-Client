@@ -43,7 +43,7 @@ const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/login">Sign In</Nav.Link>
-            <Nav.Link>
+            <button style={{ border: "none", background: "none" }}>
               <Link to="/cart">
                 <Badge
                   badgeContent={totalOrders}
@@ -53,7 +53,7 @@ const Header = () => {
                   <ShoppingCartOutlined />
                 </Badge>
               </Link>
-            </Nav.Link>
+            </button>
           </Nav>
         </Navbar.Collapse>
       </Container>

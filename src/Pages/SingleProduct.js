@@ -14,6 +14,8 @@ const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const [colorAlert, setColorAlert] = useState(false);
+  const [sizeAlert, setSizeAlert] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,18 +38,37 @@ const SingleProduct = () => {
   };
 
   const handleColor = (c) => {
-    c !== color ? setColor(c) : setColor("");
+    if (c !== color) {
+      setColor(c);
+      setColorAlert(false);
+    } else {
+      setColor("");
+    }
   };
 
-  const handleSize = (e) => setSize(e.target.value);
+  const handleSize = (e) => {
+    setSize(e.target.value);
+    setSizeAlert(false);
+  };
 
   const handleCart = () => {
-    /*==== update cart ===== */
     if (!color) {
       alert("please select color");
+      setColorAlert(true);
       return;
+    } else {
+      setColorAlert(false);
     }
 
+    if (!size) {
+      alert("please select size");
+      setSizeAlert(true);
+      return;
+    } else {
+      setSizeAlert(false);
+    }
+
+    /*==== update cart ===== */
     dispatch(
       addProduct({
         ...product,
@@ -98,7 +119,13 @@ const SingleProduct = () => {
               )}
 
               <br />
-              <p style={{ width: "100%" }}>hello</p>
+              {colorAlert ? (
+                <p className="singleProduct-filter-message">
+                  Please select color
+                </p>
+              ) : (
+                <p></p>
+              )}
             </div>
             {/* ==== Filter Size ==== */}
             <div className="singleProduct-filter">
@@ -108,12 +135,7 @@ const SingleProduct = () => {
                 className="singleProduct-filter-size"
                 onChange={(e) => handleSize(e)}
               >
-                <option
-                  selected
-                  disabled
-                  className="singleProduct-filter-size-option"
-                  value=""
-                >
+                <option className="singleProduct-filter-size-option" value="">
                   Select
                 </option>
                 {product.size?.map(
@@ -128,6 +150,18 @@ const SingleProduct = () => {
                     )
                 )}
               </select>
+              {sizeAlert ? (
+                <p className="singleProduct-filter-message">
+                  Please select size
+                </p>
+              ) : (
+                <p
+                  className="singleProduct-filter-message"
+                  style={{ visibility: "hidden" }}
+                >
+                  This section is hidden
+                </p>
+              )}
             </div>
           </div>
 
