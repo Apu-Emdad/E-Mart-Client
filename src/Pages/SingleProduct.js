@@ -1,16 +1,20 @@
 import { Add, Remove } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import "../Assets/CSS/SingleProduct.css";
 import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
+import { addProduct } from "../Redux/Slices/cartSlice";
 import { publicRequest } from "../requestMethods";
+import ObjectID from "bson-objectid";
 const SingleProduct = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -31,8 +35,30 @@ const SingleProduct = () => {
     }
   };
 
-  const handleColor = (c) => setColor(c);
+  const handleColor = (c) => {
+    c !== color ? setColor(c) : setColor("");
+  };
+
   const handleSize = (e) => setSize(e.target.value);
+
+  const handleCart = () => {
+    /*==== update cart ===== */
+    if (!color) {
+      alert("please select color");
+      return;
+    }
+
+    dispatch(
+      addProduct({
+        ...product,
+        productQuantity: quantity,
+        color,
+        size,
+        subtotal: product.price * quantity,
+        orderId: ObjectID(),
+      })
+    );
+  };
 
   return (
     <div>
@@ -61,11 +87,18 @@ const SingleProduct = () => {
                     <div
                       key={c}
                       style={{ backgroundColor: c }}
-                      className="singleProduct-filter-color"
                       onClick={() => handleColor(c)}
+                      className={
+                        color === c
+                          ? "singleProduct-filter-color singleProduct-filter-color-selected "
+                          : "singleProduct-filter-color "
+                      }
                     />
                   )
               )}
+
+              <br />
+              <p style={{ width: "100%" }}>hello</p>
             </div>
             {/* ==== Filter Size ==== */}
             <div className="singleProduct-filter">
@@ -75,7 +108,12 @@ const SingleProduct = () => {
                 className="singleProduct-filter-size"
                 onChange={(e) => handleSize(e)}
               >
-                <option className="singleProduct-filter-size-option">
+                <option
+                  selected
+                  disabled
+                  className="singleProduct-filter-size-option"
+                  value=""
+                >
                   Select
                 </option>
                 {product.size?.map(
@@ -92,6 +130,7 @@ const SingleProduct = () => {
               </select>
             </div>
           </div>
+
           {/* ==== Amount  ==== */}
           <div className="singleProduct-add-container">
             <div className="singleProduct-amount-container">
@@ -105,7 +144,7 @@ const SingleProduct = () => {
                 style={{ cursor: "pointer" }}
               />
             </div>
-            <button>ADD TO CART</button>
+            <button onClick={handleCart}>ADD TO CART</button>
           </div>
         </div>
       </div>

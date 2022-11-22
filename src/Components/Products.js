@@ -4,6 +4,7 @@ import Product from "./Product";
 
 import "../Assets/CSS/Product.css";
 import axios from "axios";
+import { publicRequest } from "../requestMethods";
 
 const Products = ({ category, filters, sort }) => {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,28 @@ const Products = ({ category, filters, sort }) => {
 
   /* main code using aborcontroller*/
   useEffect(() => {
+    const abortController = new AbortController();
+    const getProdcuts = async () => {
+      try {
+        const res = await publicRequest.get(
+          category ? `products?category=${category}` : `products`,
+          { signal: abortController.signal } // Notice this line here
+        );
+        setProducts(res.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    getProdcuts();
+
+    return () => {
+      // Function returned from useEffect is called on unmount
+      // Here it'll abort the fetch
+      console.log("unmounted");
+      abortController.abort();
+    };
+  }, [category]);
+  /* useEffect(() => {
     const abortController = new AbortController();
     const getProdcuts = async () => {
       try {
@@ -33,7 +56,7 @@ const Products = ({ category, filters, sort }) => {
       console.log("unmounted");
       abortController.abort();
     };
-  }, [category]);
+  }, [category]); */
 
   /* test code using boolean*/
   /* useEffect(() => {

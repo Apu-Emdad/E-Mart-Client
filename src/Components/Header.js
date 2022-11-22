@@ -5,7 +5,12 @@ import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 
 import "../Assets/CSS/Header.css";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 const Header = () => {
+  const totalOrders = useSelector((state) => state.cart.totalOrders);
+
   return (
     <Navbar
       collapseOnSelect
@@ -38,10 +43,16 @@ const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/login">Sign In</Nav.Link>
-            <Nav.Link href="/cart">
-              <Badge badgeContent={4} color="primary" overlap="rectangular">
-                <ShoppingCartOutlined />
-              </Badge>
+            <Nav.Link>
+              <Link to="/cart">
+                <Badge
+                  badgeContent={totalOrders}
+                  color="primary"
+                  overlap="rectangular"
+                >
+                  <ShoppingCartOutlined />
+                </Badge>
+              </Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

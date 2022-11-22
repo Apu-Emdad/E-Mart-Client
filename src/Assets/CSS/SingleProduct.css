@@ -43,6 +43,7 @@
 .singleProduct-filter {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .singleProduct-filter-title {
@@ -56,6 +57,12 @@
   margin: 0px 5px;
   cursor: pointer;
   border: 1px solid black;
+}
+
+.singleProduct-filter-color-selected {
+  width: 30px;
+  height: 30px;
+  border: 2px solid blue;
 }
 
 .singleProduct-filter-size {
