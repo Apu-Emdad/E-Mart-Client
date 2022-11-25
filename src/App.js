@@ -6,6 +6,7 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import Cart from "./Pages/Cart";
 import { BrowserRouter, Routes, Navigate, Route } from "react-router-dom";
+import Success from "./Pages/Success";
 
 function App() {
   const user = false;
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products/:category" element={<ProductList />} />
           <Route path="/product/:productId" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/success" element={<Success />} />
           <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}

@@ -18,6 +18,7 @@ const SingleProduct = () => {
   const [sizeAlert, setSizeAlert] = useState(false);
   const dispatch = useDispatch();
 
+  /* ==== Getting single product ==== */
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -29,6 +30,7 @@ const SingleProduct = () => {
     getProduct();
   }, [productId]);
 
+  /* ==== Handling the product quantitiy ==== */
   const handleQuantity = (type) => {
     if (type === "dec") {
       quantity > 1 && setQuantity(quantity - 1);
@@ -37,6 +39,7 @@ const SingleProduct = () => {
     }
   };
 
+  /* ==== Handling the product color ==== */
   const handleColor = (c) => {
     if (c !== color) {
       setColor(c);
@@ -46,11 +49,13 @@ const SingleProduct = () => {
     }
   };
 
+  /* ==== Handling the product size ==== */
   const handleSize = (e) => {
     setSize(e.target.value);
     setSizeAlert(false);
   };
 
+  /* ==== Handling the cart with Redux Toolkit ====  */
   const handleCart = () => {
     if (!color) {
       alert("please select color");

@@ -4,17 +4,52 @@ import { useSelector } from "react-redux";
 import "../Assets/CSS/Cart.css";
 import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+/* ===== React Stripe imports ====- */
+import StripeCheckout from "react-stripe-checkout";
+import { useEffect } from "react";
+import { publicRequest, userRequest } from "../requestMethods";
+const KEY = process.env.REACT_APP_STRIPE;
+
 const Cart = () => {
   const cursorPointer = {
     cursor: "pointer",
   };
 
+  /* ==== declaring stripe constants ==== */
   const cart = useSelector((state) => state.cart);
+  const [stripeToken, setStripeToken] = useState("null");
+  const navigate = useNavigate();
 
   const subTotal = cart.total;
   const shippingCharge = subTotal * (10 / 100);
   const discount = subTotal * (5 / 100);
   const total = subTotal + shippingCharge - discount;
+
+  const onToken = (token) => {
+    setStripeToken(token);
+    // console.log(token);
+  };
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await userRequest.post("/checkout/payment", {
+          tokenId: stripeToken.id,
+          amount: 500,
+        });
+        navigate("/success", {
+          stripeData: res.data,
+          products: cart,
+        });
+        console.log(res.data);
+      } catch {}
+    };
+
+    stripeToken && makeRequest();
+  }, [navigate, cart, stripeToken]);
 
   return (
     <div>
@@ -30,9 +65,21 @@ const Cart = () => {
             </span>
             <span className="cart-topText">My Wishlist(0)</span>
           </div>
-          <button className="cart-topButton cart-filledButton">
-            Checkout Now
-          </button>
+
+          <StripeCheckout
+            name="E-MART"
+            image="https://i.ibb.co/r6yv10S/Logo.jpg"
+            billingAddress
+            shippingAddress
+            description={`Your total is $${cart.total}`}
+            amount={cart.total * 100}
+            token={onToken}
+            stripeKey={KEY}
+          >
+            <button className="cart-topButton cart-filledButton">
+              Checkout Now
+            </button>
+          </StripeCheckout>
         </div>
         {/* ==== cart top ends ==== */}
 
@@ -42,7 +89,7 @@ const Cart = () => {
           <div className="cart-info">
             {/*==== cart-info> cart-product starts ====+ */}
             {cart.products.map((product) => (
-              <div className="cart-product">
+              <div key={product.orderId} className="cart-product">
                 <div className="cart-productDetail">
                   <img src={product.img} alt="" />
                   <div className="cart-details">

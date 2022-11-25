@@ -36,7 +36,7 @@
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   gap: 40px;
 }
 
