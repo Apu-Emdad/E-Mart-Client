@@ -23,13 +23,22 @@
 }
 
 .login-form button {
-  margin: 10px 0px;
+  margin: 10px 0px 0px;
   width: 40%;
   cursor: pointer;
   border: none;
   padding: 15px 20px;
   background-color: teal;
   color: white;
+}
+
+.login-form button :disabled {
+  background-color: green;
+  cursor: not-allowed;
+}
+
+.login-form span {
+  color: #a22323;
 }
 
 .login-link {

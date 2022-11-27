@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 import { Badge } from "@material-ui/core";
-import { ShoppingCartOutlined } from "@material-ui/icons";
+import { ShoppingCartOutlined, ExitToApp } from "@material-ui/icons";
 
 import "../Assets/CSS/Header.css";
 import { useSelector } from "react-redux";
@@ -43,7 +43,11 @@ const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/login">Sign In</Nav.Link>
-            <button style={{ border: "none", background: "none" }}>
+
+            <button
+              style={{ border: "none", background: "none" }}
+              className="mx-2"
+            >
               <Link to="/cart">
                 <Badge
                   badgeContent={totalOrders}
@@ -53,6 +57,12 @@ const Header = () => {
                   <ShoppingCartOutlined />
                 </Badge>
               </Link>
+            </button>
+            <Navbar.Text>Signed in as:</Navbar.Text>
+            <button className="button-5">
+              Log out &nbsp;
+              {/* https://getcssscan.com/css-buttons-examples */}
+              <ExitToApp />
             </button>
           </Nav>
         </Navbar.Collapse>
