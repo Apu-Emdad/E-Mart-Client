@@ -1,16 +1,21 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined, ExitToApp } from "@material-ui/icons";
 
 import "../Assets/CSS/Header.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logOut } from "../Redux/Slices/userSlice";
 
 const Header = () => {
   const totalOrders = useSelector((state) => state.cart.totalOrders);
+  const dispatch = useDispatch();
 
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
   return (
     <Navbar
       collapseOnSelect
@@ -58,11 +63,12 @@ const Header = () => {
                 </Badge>
               </Link>
             </button>
-            <Navbar.Text>Signed in as:</Navbar.Text>
-            <button className="button-5">
-              Log out &nbsp;
-              {/* https://getcssscan.com/css-buttons-examples */}
-              <ExitToApp />
+            <Navbar.Text className="user-name" style={{ color: "black" }}>
+              Modric&nbsp;
+            </Navbar.Text>
+
+            <button className="button-5" title="Log Out" onClick={handleLogOut}>
+              {/* https://getcssscan.com/css-buttons-examples */}Log Out
             </button>
           </Nav>
         </Navbar.Collapse>
