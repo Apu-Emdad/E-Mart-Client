@@ -1,7 +1,7 @@
 import { Add, Remove } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "../Assets/CSS/SingleProduct.css";
 import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
@@ -17,6 +17,11 @@ const SingleProduct = () => {
   const [colorAlert, setColorAlert] = useState(false);
   const [sizeAlert, setSizeAlert] = useState(false);
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.currentUser);
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.pathname);
 
   /* ==== Getting single product ==== */
   useEffect(() => {
@@ -57,6 +62,11 @@ const SingleProduct = () => {
 
   /* ==== Handling the cart with Redux Toolkit ====  */
   const handleCart = () => {
+    if (!user) {
+      navigate("/login", { state: { prevPath: location.pathname } });
+      alert("Please Log In");
+      return;
+    }
     if (!color) {
       alert("please select color");
       setColorAlert(true);

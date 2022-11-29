@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined, ExitToApp } from "@material-ui/icons";
@@ -63,13 +63,28 @@ const Header = () => {
                 </Badge>
               </Link>
             </button>
-            <Navbar.Text className="user-name" style={{ color: "black" }}>
+            {/*  <Navbar.Text className="user-name" style={{ color: "black" }}>
               Modric&nbsp;
-            </Navbar.Text>
-
-            <button className="button-5" title="Log Out" onClick={handleLogOut}>
-              {/* https://getcssscan.com/css-buttons-examples */}Log Out
-            </button>
+            </Navbar.Text> */}
+            <NavDropdown title="Modric" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item
+                href="#action/3.4"
+                id="logOut"
+                onClick={handleLogOut}
+              >
+                Log Out
+              </NavDropdown.Item>
+            </NavDropdown>
+            {/* https://getcssscan.com/css-buttons-examples */}
+            {/*    <button className="button-5" title="Log Out" onClick={handleLogOut}>
+              Log Out
+            </button> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
