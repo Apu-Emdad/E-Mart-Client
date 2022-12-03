@@ -77,11 +77,11 @@
   background-color: #fa6400;
   border: 1px solid transparent;
   border-radius: 1.25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
     Arial, sans-serif;
   font-size: 16px;
@@ -90,15 +90,15 @@
   line-height: 1.25;
   margin: 0 auto;
   min-height: 3rem;
-  padding: 10px 18px;
+  padding: 10px 30px;
   position: relative;
-
   text-decoration: none;
   transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
+  width: fit-content;
 }
 #logOut:hover,
 #logOut:focus {

@@ -21,7 +21,7 @@ const SingleProduct = () => {
   const user = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
+  console.log(location);
 
   /* ==== Getting single product ==== */
   useEffect(() => {
