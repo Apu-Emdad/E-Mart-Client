@@ -11,6 +11,10 @@ import Dasboard from "./Pages/Dashboard/Dasboard";
 import DashboardHome from "./Pages/Dashboard/Dashboard-Pages/DashboardHome";
 import UserList from "./Pages/Dashboard/Dashboard-Pages/UserList";
 import User from "./Pages/Dashboard/Dashboard-Pages/User";
+import NewUser from "./Pages/Dashboard/Dashboard-Pages/NewUser";
+import ProductTable from "./Pages/Dashboard/Dashboard-Pages/ProductTable";
+import ProductDetails from "./Pages/Dashboard/Dashboard-Pages/ProductDetails";
+import NewProduct from "./Pages/Dashboard/Dashboard-Pages/NewProduct";
 
 function App() {
   const user = false;
@@ -41,6 +45,10 @@ function App() {
             <Route path="home" element={<DashboardHome />} />
             <Route path="users" element={<UserList />} />
             <Route path="user/:id" element={<User />} />
+            <Route path="newUser" element={<NewUser />} />
+            <Route path="productTable" element={<ProductTable />} />
+            <Route path="productDetails/:id" element={<ProductDetails />} />
+            <Route path="newProduct" element={<NewProduct />} />
           </Route>
         </Routes>
       </BrowserRouter>

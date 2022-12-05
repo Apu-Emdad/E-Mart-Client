@@ -13,6 +13,9 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  PersonAddOutlined,
+  AddCircleOutline,
+  AccountCircleOutlined,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -48,10 +51,28 @@ const Sidebar = () => {
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="./newUser" className="link">
+              <li className="sidebarListItem">
+                <PersonAddOutlined className="sidebarIcon" />
+                Add User
+              </li>
+            </Link>
+            <Link to="./newUser" className="link">
+              <li className="sidebarListItem">
+                <AccountCircleOutlined className="sidebarIcon" />
+                Make Admin
+              </li>
+            </Link>
+            <Link to="./productTable" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Products
+              </li>
+            </Link>
+            <Link to="./newProduct" className="link">
+              <li className="sidebarListItem">
+                <AddCircleOutline className="sidebarIcon" />
+                Add Product
               </li>
             </Link>
             <li className="sidebarListItem">

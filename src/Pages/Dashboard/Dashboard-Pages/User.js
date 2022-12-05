@@ -15,7 +15,7 @@ const User = () => {
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
-        <Link to="/newUser">
+        <Link to="../newUser">
           <button className="userAddButton">Create</button>
         </Link>
       </div>
@@ -49,7 +49,7 @@ const User = () => {
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+              <span className="userShowInfoTitle">user@gmail.com</span>
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
@@ -109,7 +109,7 @@ const User = () => {
                   src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
                   alt=""
                 />
-                <label htmlFor="file">
+                <label for="file">
                   <Publish className="userUpdateIcon" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
