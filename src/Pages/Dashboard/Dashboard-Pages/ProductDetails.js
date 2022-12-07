@@ -3,9 +3,13 @@ import "../../../Assets/CSS/Dashboard-CSS/ProductDetails.css";
 import Chart from "../../../Components/Dashboard-Components/Chart";
 import { productData } from "../dummyData";
 import { Publish } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ProductDetails = () => {
+  const { productId } = useParams();
+  const product = useSelector((state) => state.products.products);
+  console.log(product);
   return (
     <div className="product">
       <div className="productTitleContainer">

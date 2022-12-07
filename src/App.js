@@ -15,9 +15,12 @@ import NewUser from "./Pages/Dashboard/Dashboard-Pages/NewUser";
 import ProductTable from "./Pages/Dashboard/Dashboard-Pages/ProductTable";
 import ProductDetails from "./Pages/Dashboard/Dashboard-Pages/ProductDetails";
 import NewProduct from "./Pages/Dashboard/Dashboard-Pages/NewProduct";
+import { useSelector } from "react-redux";
 
 function App() {
   const user = false;
+  const isAdmin = useSelector((state) => state.user);
+  console.log(isAdmin);
 
   return (
     <div className="App">
