@@ -69,9 +69,9 @@ const ProductTable = () => {
         rows={products}
         disableSelectionOnClick
         columns={columns}
+        getRowId={(row) => row._id}
         pageSize={8}
         checkboxSelection
-        getRowId={(row) => row._id}
       />
     </div>
   );

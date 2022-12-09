@@ -50,7 +50,10 @@ function App() {
             <Route path="user/:id" element={<User />} />
             <Route path="newUser" element={<NewUser />} />
             <Route path="productTable" element={<ProductTable />} />
-            <Route path="productDetails/:id" element={<ProductDetails />} />
+            <Route
+              path="productDetails/:productId"
+              element={<ProductDetails />}
+            />
             <Route path="newProduct" element={<NewProduct />} />
           </Route>
         </Routes>

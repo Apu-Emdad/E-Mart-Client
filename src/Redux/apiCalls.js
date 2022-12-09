@@ -1,13 +1,17 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { publicRequest, userRequest } from "../requestMethods";
 import {
+  addProductFailure,
+  addProductStart,
+  addProductSuccess,
   deleteProductFailure,
   deleteProductStart,
   deleteProductSuccess,
   getProductFailure,
   getProductStart,
   getProductSuccess,
+  updateProductFailure,
+  updateProductStart,
+  updateProductSuccess,
 } from "./Slices/Admin/productSlice";
 import { loginFailure, loginStart, loginSuccess } from "./Slices/userSlice";
 
@@ -40,5 +44,25 @@ export const deleteProduct = async (id, dispatch) => {
     dispatch(deleteProductSuccess(id));
   } catch {
     dispatch(deleteProductFailure());
+  }
+};
+
+export const updateProduct = async (id, product, dispatch) => {
+  dispatch(updateProductStart());
+  try {
+    const res = await userRequest.put(`/products/${id}`, product);
+    console.log(res);
+    dispatch(updateProductSuccess({ id, product }));
+  } catch (err) {
+    dispatch(updateProductFailure());
+  }
+};
+export const addProduct = async (product, dispatch) => {
+  dispatch(addProductStart());
+  try {
+    const res = await userRequest.post(`/products`, product);
+    dispatch(addProductSuccess(res.data));
+  } catch (err) {
+    dispatch(addProductFailure());
   }
 };

@@ -89,7 +89,8 @@
   color: gray;
 }
 
-.productFormLeft > input {
+.productFormLeft > input,
+textarea {
   margin-bottom: 10px;
   border: none;
   padding: 5px;

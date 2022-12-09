@@ -7,7 +7,7 @@
 }
 
 .addProductItem {
-  width: 250px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -24,6 +24,11 @@
 
 .addProductItem > select {
   padding: 10px;
+}
+.addProductItem > textarea {
+  padding: 10px;
+  border: 1px solid gray;
+  height: 200px;
 }
 
 .addProductButton {

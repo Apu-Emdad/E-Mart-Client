@@ -22,14 +22,15 @@ const persistConfig = {
   version: 1,
   storage,
 };
-const persistedReducer = persistReducer(persistConfig, userSlice);
+const userPersistedReducer = persistReducer(persistConfig, userSlice);
+const productPersistedReducer = persistReducer(persistConfig, productSlice);
 
 export const store = configureStore({
   reducer: {
     cart: cartSlice,
-    products: productSlice,
+    products: productPersistedReducer,
 
-    user: persistedReducer,
+    user: userPersistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

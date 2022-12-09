@@ -5,6 +5,7 @@ const currentUser = JSON.parse(
   JSON.parse(localStorage.getItem("persist:root")).currentUser
 );
 const TOKEN = currentUser?.accessToken;
+// const TOKEN = "abc";
 /* const TOKEN =
   JSON.parse(JSON.parse(localStorage.getItem("persist:root")).currentUser)
     .accessToken || "abc"; */

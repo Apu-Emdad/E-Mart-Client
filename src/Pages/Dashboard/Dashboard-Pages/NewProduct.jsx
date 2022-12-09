@@ -1,31 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "../../../Assets/CSS/Dashboard-CSS/NewProduct.css";
 
 const NewProduct = () => {
+  const [inputs, setInputs] = useState({});
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState([]);
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleCat = (e) => {
+    setCat(e.target.value.split(",").map((value) => value.trim()));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Product</h1>
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
-          <input type="file" id="file" style={{ paddingTop: "2px" }} />
+          <input
+            type="file"
+            id="file"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
         </div>
         <div className="addProductItem">
-          <label>Name</label>
-          <input type="text" placeholder="Apple Airpods" />
+          <label>Title</label>
+          <input
+            name="title"
+            type="text"
+            placeholder="Apple Airpods"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Description</label>
+          <textarea
+            name="desc"
+            type="text"
+            placeholder="description..."
+            onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Price</label>
+          <input
+            name="price"
+            type="number"
+            placeholder="100"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Categories</label>
+          <input
+            type="text"
+            placeholder="Casual, Warm, Formal"
+            onChange={handleCat}
+          />
         </div>
         <div className="addProductItem">
           <label>Stock</label>
-          <input type="text" placeholder="123" />
-        </div>
-        <div className="addProductItem">
-          <label>Active</label>
-          <select name="active" id="active">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+          <select name="inStock" onChange={handleChange}>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
           </select>
         </div>
-        <button className="addProductButton">Create</button>
+        <button className="addProductButton" onClick={handleSubmit}>
+          Create
+        </button>
       </form>
     </div>
   );
