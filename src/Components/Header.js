@@ -9,8 +9,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logOut } from "../Redux/Slices/userSlice";
 
+import {
+  LineStyle,
+  ListAltOutlined,
+  Timeline,
+  TrendingUp,
+  PermIdentity,
+  Storefront,
+  AttachMoney,
+  BarChart,
+  MailOutline,
+  DynamicFeed,
+  ChatBubbleOutline,
+  WorkOutline,
+  Report,
+  PersonAddOutlined,
+  AddCircleOutline,
+  AccountCircleOutlined,
+} from "@material-ui/icons";
+
 const Header = () => {
   const totalOrders = useSelector((state) => state.cart.totalOrders);
+  const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -46,12 +66,12 @@ const Header = () => {
             </NavDropdown>
           </Nav> */}
           <Nav className="ms-auto">
-            <Nav.Link href="/register">Register</Nav.Link>
-            <Nav.Link href="/login">Sign In</Nav.Link>
-
+            {!user && <Nav.Link href="/register">Register</Nav.Link>}
+            {!user && <Nav.Link href="/login">Sign In</Nav.Link>}
+            <Nav.Link href="/products">Products</Nav.Link>
             <button
               style={{ border: "none", background: "none" }}
-              className="mx-2"
+              className="mx-2 Header-Cart-Button"
             >
               <Link to="/cart">
                 <Badge
@@ -66,21 +86,44 @@ const Header = () => {
             {/*  <Navbar.Text className="user-name" style={{ color: "black" }}>
               Modric&nbsp;
             </Navbar.Text> */}
-            <NavDropdown title="Modric" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                href="#action/3.4"
-                id="logOut"
-                onClick={handleLogOut}
+            {user && (
+              <NavDropdown
+                title={
+                  <div className="nav-dropodown-title">
+                    <img src="https://i.ibb.co/sRr8kWj/avatar.png" alt="" />
+                    <p>Modric</p>
+                  </div>
+                }
+                id="collapsible-nav-dropdown"
               >
-                Log Out
-              </NavDropdown.Item>
-            </NavDropdown>
+                <NavDropdown.Item
+                  className="Header-avatar-item"
+                  href="/dashboard"
+                >
+                  <LineStyle /> <span>My Dashboard</span>
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  className="Header-avatar-item"
+                  href="#action/3.1"
+                >
+                  <ListAltOutlined /> <span>Orders</span>
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  className="Header-avatar-item"
+                  href="#action/3.1"
+                >
+                  <AccountCircleOutlined /> <span>Edit Profile</span>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item
+                  href="#action/3.4"
+                  id="logOut"
+                  onClick={handleLogOut}
+                >
+                  Log Out
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
             {/* https://getcssscan.com/css-buttons-examples */}
             {/*    <button className="button-5" title="Log Out" onClick={handleLogOut}>
               Log Out

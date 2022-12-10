@@ -12,6 +12,7 @@
   margin: 20px;
   position: relative;
   border-radius: 5px;
+  margin-bottom: 0px;
 }
 
 .product-content:hover .product-info {
@@ -70,5 +71,22 @@
   background-color: #e9f5f5;
   transform: scale(1.5);
 }
-
+.product-title {
+  margin: 20px;
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-title .title {
+  font-size: 18px;
+  align-self: center;
+  color: #1515ba;
+  font-weight: 400;
+}
+.product-title .price {
+  font-weight: bold;
+  font-size: 24px;
+  color: #166a6a;
+}
 /*======  product css end ======= */

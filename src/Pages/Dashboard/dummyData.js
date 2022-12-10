@@ -68,8 +68,7 @@ export const userRows = [
   {
     id: 1,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$123.00",
@@ -77,8 +76,7 @@ export const userRows = [
   {
     id: 2,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$130.00",
@@ -86,8 +84,7 @@ export const userRows = [
   {
     id: 3,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$325.00",
@@ -95,8 +92,7 @@ export const userRows = [
   {
     id: 4,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$150.00",
@@ -104,8 +100,7 @@ export const userRows = [
   {
     id: 5,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$520.00",
@@ -113,8 +108,7 @@ export const userRows = [
   {
     id: 6,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$620.00",
@@ -122,8 +116,7 @@ export const userRows = [
   {
     id: 7,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$160.00",
@@ -131,8 +124,7 @@ export const userRows = [
   {
     id: 8,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$126.00",
@@ -140,8 +132,7 @@ export const userRows = [
   {
     id: 9,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$642.00",
@@ -149,8 +140,7 @@ export const userRows = [
   {
     id: 10,
     username: "Charles Babbage",
-    avatar:
-      "https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png",
+    avatar: "https://i.ibb.co/sRr8kWj/avatar.png",
     email: "user@gmail.com",
     status: "active",
     transaction: "$246.00",

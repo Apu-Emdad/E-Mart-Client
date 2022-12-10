@@ -9,7 +9,7 @@ const WidgetSm = () => {
       <ul className="widgetSmList">
         <li className="widgetSmListItem">
           <img
-            src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+            src="https://i.ibb.co/sRr8kWj/avatar.png"
             alt=""
             className="widgetSmImg"
           />
@@ -24,7 +24,7 @@ const WidgetSm = () => {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+            src="https://i.ibb.co/sRr8kWj/avatar.png"
             alt=""
             className="widgetSmImg"
           />
@@ -39,7 +39,7 @@ const WidgetSm = () => {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+            src="https://i.ibb.co/sRr8kWj/avatar.png"
             alt=""
             className="widgetSmImg"
           />
@@ -54,7 +54,7 @@ const WidgetSm = () => {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+            src="https://i.ibb.co/sRr8kWj/avatar.png"
             alt=""
             className="widgetSmImg"
           />
@@ -69,7 +69,7 @@ const WidgetSm = () => {
         </li>
         <li className="widgetSmListItem">
           <img
-            src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+            src="https://i.ibb.co/sRr8kWj/avatar.png"
             alt=""
             className="widgetSmImg"
           />

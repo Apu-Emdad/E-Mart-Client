@@ -25,6 +25,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    // console.log("clicked");
     login(dispatch, { email, password });
   };
 
@@ -47,9 +48,7 @@ const Login = () => {
             placeholder="Password"
             onChange={handlePassword}
           />
-          <button onClick={handleLogin} disabled={isFetching}>
-            Login
-          </button>
+          <button onClick={handleLogin}>Login</button>
           {error ? (
             <span>Wrong credentilas!</span>
           ) : (

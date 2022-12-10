@@ -23,7 +23,7 @@ const User = () => {
         <div className="userShow">
           <div className="userShowTop">
             <img
-              src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+              src="https://i.ibb.co/sRr8kWj/avatar.png"
               alt=""
               className="userShowImg"
             />
@@ -106,7 +106,7 @@ const User = () => {
               <div className="userUpdateUpload">
                 <img
                   className="userUpdateImg"
-                  src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+                  src="https://i.ibb.co/sRr8kWj/avatar.png"
                   alt=""
                 />
                 <label for="file">

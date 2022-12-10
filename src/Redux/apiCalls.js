@@ -40,7 +40,7 @@ export const getProducts = async (dispatch) => {
 export const deleteProduct = async (id, dispatch) => {
   dispatch(deleteProductStart());
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
+    const res = await userRequest.delete(`/products/${id}`);
     dispatch(deleteProductSuccess(id));
   } catch {
     dispatch(deleteProductFailure());
@@ -61,7 +61,9 @@ export const addProduct = async (product, dispatch) => {
   dispatch(addProductStart());
   try {
     const res = await userRequest.post(`/products`, product);
+    console.log(res.data);
     dispatch(addProductSuccess(res.data));
+    alert("This product is added");
   } catch (err) {
     dispatch(addProductFailure());
   }

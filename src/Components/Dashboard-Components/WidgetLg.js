@@ -18,7 +18,7 @@ const WidgetLg = () => {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+              src="https://i.ibb.co/sRr8kWj/avatar.png"
               alt=""
               className="widgetLgImg"
             />
@@ -33,7 +33,7 @@ const WidgetLg = () => {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+              src="https://i.ibb.co/sRr8kWj/avatar.png"
               alt=""
               className="widgetLgImg"
             />
@@ -48,7 +48,7 @@ const WidgetLg = () => {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+              src="https://i.ibb.co/sRr8kWj/avatar.png"
               alt=""
               className="widgetLgImg"
             />
@@ -63,7 +63,7 @@ const WidgetLg = () => {
         <tr className="widgetLgTr">
           <td className="widgetLgUser">
             <img
-              src="https://i.ibb.co/Np7BFvV/go-back-gallery-for-contact-person-icon-png-21.png"
+              src="https://i.ibb.co/sRr8kWj/avatar.png"
               alt=""
               className="widgetLgImg"
             />

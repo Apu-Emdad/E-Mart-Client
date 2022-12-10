@@ -12,28 +12,32 @@ const Product = ({ product }) => {
   return (
     <div className="col-md-6 col-lg-4 col-sm-6  product-container  ">
       <div className="product-content">
-        <div className="product-img">
-          <img src={img} alt="" className="img-fluid d-block  " />
-          <p>{title}</p>
-          <p>${price}</p>
-        </div>
-        <div className="product-square"></div>
+        <div className="product-image-container">
+          <div className="product-img">
+            <img src={img} alt="" className="img-fluid d-block  " />
+          </div>
+          <div className="product-square"></div>
 
-        <div className="product-info">
-          <div className="product-icon">
-            <ShoppingCartOutlined />
-          </div>
-          <Link
-            to={`/product/${_id}`}
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          <div className="product-info">
             <div className="product-icon">
-              <SearchOutlined />
+              <ShoppingCartOutlined />
             </div>
-          </Link>
-          <div className="product-icon">
-            <FavoriteBorderOutlined />
+            <Link
+              to={`/product/${_id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <div className="product-icon">
+                <SearchOutlined />
+              </div>
+            </Link>
+            <div className="product-icon">
+              <FavoriteBorderOutlined />
+            </div>
           </div>
+        </div>
+        <div className="product-title">
+          <p className="title">{title}</p>
+          <p className="price">${price}</p>
         </div>
       </div>
     </div>

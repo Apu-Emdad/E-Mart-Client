@@ -19,8 +19,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const user = false;
-  const isAdmin = useSelector((state) => state.user);
-  console.log(isAdmin);
 
   return (
     <div className="App">
