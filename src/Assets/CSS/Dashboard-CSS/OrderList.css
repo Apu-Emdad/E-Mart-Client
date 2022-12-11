@@ -1,0 +1,14 @@
+.OrderList {
+  flex: 4;
+  margin: 10px;
+}
+.orderlist-update {
+  margin-right: 20px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.css-1ygcj2i-MuiTableCell-root,
+.css-1ndpvdd-MuiTableCell-root {
+  font-weight: 700 !important;
+}

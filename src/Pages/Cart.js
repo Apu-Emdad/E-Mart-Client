@@ -1,6 +1,6 @@
 import { Add, Remove } from "@material-ui/icons";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../Assets/CSS/Cart.css";
 import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
@@ -10,7 +10,8 @@ import { useNavigate } from "react-router-dom";
 /* ===== React Stripe imports ====- */
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect } from "react";
-import { publicRequest, userRequest } from "../requestMethods";
+import { userRequest } from "../requestMethods";
+import { resetCart } from "../Redux/Slices/cartSlice";
 const KEY = process.env.REACT_APP_STRIPE;
 
 const Cart = () => {
@@ -20,8 +21,12 @@ const Cart = () => {
 
   /* ==== declaring stripe constants ==== */
   const cart = useSelector((state) => state.cart);
+  const userId = useSelector((state) => state.user?.currentUser._id);
+  const userName = useSelector((state) => state.user.currentUser.username);
+  // console.log(userId);
   const [stripeToken, setStripeToken] = useState("null");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const subTotal = cart.total;
   const shippingCharge = subTotal * (10 / 100);
@@ -36,20 +41,41 @@ const Cart = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
+        const order = {
+          userId: userId,
+          userName: userName,
+          products: cart.products,
+          total: cart.total,
+          totalOrders: cart.totalOrders,
+        };
+
         const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
           amount: 500,
         });
+
+        const sendToDB = await userRequest.post(`/orders/${userId}`, order);
+        console.log(sendToDB.data);
+
         navigate("/success", {
-          stripeData: res.data,
-          products: cart,
+          state: {
+            stripeData: res.data,
+            products: cart,
+            orderId: sendToDB.data._id,
+          },
         });
-        console.log(res.data);
-      } catch {}
+        return;
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     stripeToken && makeRequest();
-  }, [navigate, cart, stripeToken]);
+  }, [navigate, cart, stripeToken, userId, userName]);
+
+  const handleCartReset = () => {
+    dispatch(resetCart());
+  };
 
   return (
     <div>
@@ -58,7 +84,9 @@ const Cart = () => {
         <h1 className="cart-title">My Cart</h1>
         {/* ==== cart top starts ==== */}
         <div className="cart-top">
-          <button className="cart-topButton">Continue Shopping</button>
+          <button className="cart-topButton" onClick={handleCartReset}>
+            Reset Cart
+          </button>
           <div className="cart-topTexts">
             <span className="cart-topText">
               My Cart({cart.products.length})
@@ -98,7 +126,7 @@ const Cart = () => {
                     </span>
                     <span>
                       <b>Order ID: </b>
-                      {product.orderId.toHexString()}
+                      {product?.orderId}
                     </span>
                     <div
                       className="singleProduct-filter-color"

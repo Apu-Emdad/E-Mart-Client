@@ -1,10 +1,10 @@
 import axios from "axios";
 const BASE_URL = "http://localhost:5000/e-mart/";
 
-const currentUser = JSON.parse(
-  JSON.parse(localStorage.getItem("persist:root")).currentUser
-);
+const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user);
+const currentUser = user.currentUser;
 const TOKEN = currentUser?.accessToken;
+// console.log(TOKEN);
 // const TOKEN = "abc";
 /* const TOKEN =
   JSON.parse(JSON.parse(localStorage.getItem("persist:root")).currentUser)

@@ -66,23 +66,25 @@ const Header = () => {
             </NavDropdown>
           </Nav> */}
           <Nav className="ms-auto">
+            <Nav.Link href="/products">Products</Nav.Link>
             {!user && <Nav.Link href="/register">Register</Nav.Link>}
             {!user && <Nav.Link href="/login">Sign In</Nav.Link>}
-            <Nav.Link href="/products">Products</Nav.Link>
-            <button
-              style={{ border: "none", background: "none" }}
-              className="mx-2 Header-Cart-Button"
-            >
-              <Link to="/cart">
-                <Badge
-                  badgeContent={totalOrders}
-                  color="primary"
-                  overlap="rectangular"
-                >
-                  <ShoppingCartOutlined />
-                </Badge>
-              </Link>
-            </button>
+            {user && (
+              <button
+                style={{ border: "none", background: "none" }}
+                className="mx-2 Header-Cart-Button"
+              >
+                <Link to="/cart">
+                  <Badge
+                    badgeContent={totalOrders}
+                    color="primary"
+                    overlap="rectangular"
+                  >
+                    <ShoppingCartOutlined />
+                  </Badge>
+                </Link>
+              </button>
+            )}
             {/*  <Navbar.Text className="user-name" style={{ color: "black" }}>
               Modric&nbsp;
             </Navbar.Text> */}
