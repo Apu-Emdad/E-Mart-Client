@@ -17,6 +17,7 @@ import ProductDetails from "./Pages/Dashboard/Dashboard-Pages/ProductDetails";
 import NewProduct from "./Pages/Dashboard/Dashboard-Pages/NewProduct";
 import { useSelector } from "react-redux";
 import OrderList from "./Pages/Dashboard/Dashboard-Pages/OrderList";
+import MyOrders from "./Pages/Dashboard/Dashboard-Pages/MyOrders";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -61,6 +62,7 @@ function App() {
             />
             <Route path="newProduct" element={<NewProduct />} />
             <Route path="orders" element={<OrderList />} />
+            <Route path="MyOrders" element={<MyOrders />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -9,8 +9,10 @@ import {
   Publish,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const User = () => {
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <div className="user">
       <div className="userTitleContainer">

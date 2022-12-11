@@ -12,60 +12,28 @@ import {
 import { useEffect } from "react";
 import { userRequest } from "../../../requestMethods";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-const OrderList = () => {
+const MyOrders = () => {
   const [orders, setOrders] = useState([]);
-  const [orderId, setOrderId] = useState("");
-  const [status, setStatus] = useState("");
+
+  const userId = useSelector((state) => state.user.currentUser._id);
+  console.log(userId);
 
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const res = await userRequest.get("/orders");
+        const res = await userRequest.get(`/orders/find/${userId}`);
         console.log(res.data);
         setOrders(res.data);
       } catch (err) {
         console.log(err);
       }
     };
-    const updateOrders = async () => {
-      try {
-        const res = await userRequest.put(`/orders/${orderId}`, {
-          status: status,
-        });
-        console.log(res.data);
-        getOrders();
-      } catch (err) {
-        console.log(err);
-      }
-    };
+
     getOrders();
-    updateOrders();
-  }, [orderId, status]);
+  }, [userId]);
 
-  const handleOrderStatus = (e, id) => {
-    setStatus(e.target.value);
-    setOrderId(id);
-  };
-
-  /*   
-  useEffect(() => {
-    const updateOrders = async () => {
-      try {
-        const res = await userRequest.put(`/orders/${orderId}`, {
-          status: status,
-        });
-        console.log(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    updateOrders();
-  }, [orderId, status]);
-
-
- */
-  console.log(orderId, status);
   return (
     <div className="OrderList">
       <TableContainer component={Paper}>
@@ -78,7 +46,6 @@ const OrderList = () => {
               <TableCell align="center">Products</TableCell>
               <TableCell align="center">Total</TableCell>
               <TableCell align="center">Status</TableCell>
-              <TableCell align="center">Update</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -116,18 +83,6 @@ const OrderList = () => {
                 </TableCell>
                 <TableCell align="center">{order.total}</TableCell>
                 <TableCell align="center">{order.status}</TableCell>
-                <TableCell align="center">
-                  <select
-                    name="color"
-                    id=""
-                    className="orderlist-update"
-                    onChange={(e) => handleOrderStatus(e, order._id)}
-                  >
-                    <option value="pending">Pending</option>
-                    <option value="approved">Approved</option>
-                    <option value="shipped">Shipped</option>
-                  </select>
-                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -137,4 +92,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList;
+export default MyOrders;

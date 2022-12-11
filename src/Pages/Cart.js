@@ -51,7 +51,7 @@ const Cart = () => {
 
         const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
-          amount: 500,
+          amount: cart.total,
         });
 
         const sendToDB = await userRequest.post(`/orders/${userId}`, order);

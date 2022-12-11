@@ -18,10 +18,13 @@ import {
   AccountCircleOutlined,
   ListAltOutlined,
   ExposureOutlined,
+  FavoriteBorderOutlined,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Sidebar = () => {
+const UserSidebar = () => {
+  const userId = useSelector((state) => state.user.currentUser._id);
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -39,50 +42,27 @@ const Sidebar = () => {
               Analytics
             </li>
             <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
+              <FavoriteBorderOutlined className="sidebarIcon" />
+              Wishlist
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="./orders" className="link">
+            <Link to="./MyOrders" className="link">
               <li className="sidebarListItem">
                 <ExposureOutlined className="sidebarIcon" />
-                Orders
+                My Orders
               </li>
             </Link>
-            <Link to="./users" className="link">
+            <Link to={`./user/${userId}`} className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+                Edit Profile
               </li>
             </Link>
-            <Link to="./newUser" className="link">
-              <li className="sidebarListItem">
-                <PersonAddOutlined className="sidebarIcon" />
-                Add User
-              </li>
-            </Link>
-            <Link to="./newUser" className="link">
-              <li className="sidebarListItem">
-                <AccountCircleOutlined className="sidebarIcon" />
-                Make Admin
-              </li>
-            </Link>
-            <Link to="./productTable" className="link">
-              <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
-                Products
-              </li>
-            </Link>
-            <Link to="./newProduct" className="link">
-              <li className="sidebarListItem">
-                <AddCircleOutline className="sidebarIcon" />
-                Add Product
-              </li>
-            </Link>
+
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
@@ -132,4 +112,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default UserSidebar;

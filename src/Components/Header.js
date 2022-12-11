@@ -31,6 +31,7 @@ import {
 const Header = () => {
   const totalOrders = useSelector((state) => state.cart.totalOrders);
   const user = useSelector((state) => state.user.currentUser);
+  const isAdmin = user?.isAdmin || false;
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -93,7 +94,7 @@ const Header = () => {
                 title={
                   <div className="nav-dropodown-title">
                     <img src="https://i.ibb.co/sRr8kWj/avatar.png" alt="" />
-                    <p>Modric</p>
+                    <p>{user.username}</p>
                   </div>
                 }
                 id="collapsible-nav-dropdown"
@@ -104,18 +105,37 @@ const Header = () => {
                 >
                   <LineStyle /> <span>My Dashboard</span>
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="Header-avatar-item"
-                  href="#action/3.1"
-                >
-                  <ListAltOutlined /> <span>Orders</span>
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="Header-avatar-item"
-                  href="#action/3.1"
-                >
-                  <AccountCircleOutlined /> <span>Edit Profile</span>
-                </NavDropdown.Item>
+
+                {isAdmin ? (
+                  <NavDropdown.Item
+                    className="Header-avatar-item"
+                    href="dashboard/orders"
+                  >
+                    <ListAltOutlined /> <span>Orders</span>
+                  </NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item
+                    className="Header-avatar-item"
+                    href="dashboard/myorders"
+                  >
+                    <ListAltOutlined /> <span>My Orders</span>
+                  </NavDropdown.Item>
+                )}
+                {isAdmin ? (
+                  <NavDropdown.Item
+                    className="Header-avatar-item"
+                    href={`dashboard/productTable`}
+                  >
+                    <Storefront /> <span>Products</span>
+                  </NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item
+                    className="Header-avatar-item"
+                    href={`dashboard/user/${user._id}`}
+                  >
+                    <AccountCircleOutlined /> <span>Edit Profile</span>
+                  </NavDropdown.Item>
+                )}
 
                 <NavDropdown.Item
                   href="#action/3.4"
