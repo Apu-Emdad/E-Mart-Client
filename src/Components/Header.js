@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 import { Badge } from "@material-ui/core";
-import { ShoppingCartOutlined, ExitToApp } from "@material-ui/icons";
+import { ShoppingCartOutlined } from "@material-ui/icons";
 
 import "../Assets/CSS/Header.css";
 import { useDispatch, useSelector } from "react-redux";
