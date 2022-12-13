@@ -55,7 +55,7 @@
         provide image which will be stored in <b>Firestorage</b>
       </li>
       <li>
-        UAdmins can make new admin. Also, admins can change the order status from
+        Admins can make new admin. Also, admins can change the order status from
         pending to approved or shipped
       </li>
       <li>
