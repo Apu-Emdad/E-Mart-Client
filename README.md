@@ -1,4 +1,4 @@
-  <body>
+ <body>
     <h1>
       E-Mart
     </h1>
@@ -44,22 +44,18 @@
       </li>
     </ul>
     <u><b>Admin Features</b></u>
-    <div style="display: flex; justify-content: space-around; margin: 0;">
-      <p style="margin: 0;">Admin Email: mod@mods</p>
-      <p style="margin: 0;">Admin Password: 123456</p>
-    </div>
-
+    <p>Admin Email: mod@mods</p>
+    <p>Admin Password: 123456</p>
     <ul>
       <li>
-        The admins have protected dashboard route.
+       The admins have protected dashboard route.
       </li>
       <li>
         Admins can upload new products. To upload product admins must have to
         provide image which will be stored in <b>Firestorage</b>
       </li>
-
       <li>
-        Admins can make new admin. Also, admins can change the order status from
+        UAdmins can make new admin. Also, admins can change the order status from
         pending to approved or shipped
       </li>
       <li>
