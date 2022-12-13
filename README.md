@@ -13,7 +13,7 @@
       Bootstrap, Material UI (For Tables and Icons), Recharts, React-Slider
     </p>
     <h2>Feauters</h2>
-    <u><b>User Features</b></u>
+    <h4><b>User Features</b></h4>
     <ul>
       <li>
         Users can register or log in with Email. The login process is secured by
@@ -43,9 +43,9 @@
         Finally User can see his/her order status from dashboard section
       </li>
     </ul>
-    <u><b>Admin Features</b></u>
-    <span>Admin Email: mod@mods</span>
-    <span>Admin Password: 123456</span>
+    <h4><b>Admin Features</b></h4>
+    <span><b>Admin Email:</b> mod@mods</span>
+    <span><b>Admin Password:</b> 123456</span>
     <ul>
       <li>
        The admins have protected dashboard route.
