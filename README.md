@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <h1>
+      E-Mart
+    </h1>
+    <p>
+      E-Mart is an MERN E-Commerce app which sells clothes of different sizes
+      and colors
+    </p>
+    <h2>Technologies</h2>
+    <p>
+      React JS, Node JS, MongoDB, Express JS, Mongoose, JWT token, Redux
+      Toolkit, Redux Persist, Axios, Firestorage, Stripe payment gateway,
+      Bootstrap, Material UI (For Tables and Icons), Recharts, React-Slider
+    </p>
+    <h2>Feauters</h2>
+    <u><b>User Features</b></u>
+    <ul>
+      <li>
+        Users can register or log in with Email. The login process is secured by
+        <b>JWT token</b> and <b>Crypto Js</b>
+      </li>
+      <li>
+        Users can browse products from <i>products</i> page or
+        <i>Feature</i> section from home page. Users can sort the products with
+        size and color.
+      </li>
+      <li>
+        Users can order using <b>Stripe</b> payment gateway. For testing purpose
+        :
+        <ul>
+          <li>
+            Card Number: 4242424242424242
+          </li>
+          <li>
+            CVC: Any 3 digits
+          </li>
+          <li>
+            Date: Any future date
+          </li>
+        </ul>
+      </li>
+      <li>
+        Finally User can see his/her order status from dashboard section
+      </li>
+    </ul>
+    <u><b>Admin Features</b></u>
+    <div style="display: flex; justify-content: space-around; margin: 0;">
+      <p style="margin: 0;">Admin Email: mod@mods</p>
+      <p style="margin: 0;">Admin Password: 123456</p>
+    </div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    <ul>
+      <li>
+        The admins have protected dashboard route.
+      </li>
+      <li>
+        Admins can upload new products. To upload product admins must have to
+        provide image which will be stored in <b>Firestorage</b>
+      </li>
 
-## Available Scripts
+      <li>
+        Admins can make new admin. Also, admins can change the order status from
+        pending to approved or shipped
+      </li>
+      <li>
+        Admins can observe the latest transactions and user analytics
+      </li>
+    </ul>
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  </body>
+</html>
