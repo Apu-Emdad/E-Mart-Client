@@ -44,8 +44,8 @@
       </li>
     </ul>
     <u><b>Admin Features</b></u>
-    <p>Admin Email: mod@mods</p>
-    <p>Admin Password: 123456</p>
+    <span>Admin Email: mod@mods</span>
+    <span>Admin Password: 123456</span>
     <ul>
       <li>
        The admins have protected dashboard route.
