@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "../Assets/CSS/Register.css";
+import { register } from "../Redux/apiCalls";
 
 const Register = () => {
+  const [inputs, setInputs] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const user = {
+      username: inputs.username,
+      email: inputs.email,
+      password: inputs.password,
+    };
+    // console.log(user);
+    register(dispatch, user);
+    navigate("/home");
+  };
+
   return (
     <div className="register-container">
       <div className="register-wrapper">
@@ -12,27 +37,43 @@ const Register = () => {
             type="text"
             className="register-input"
             placeholder="First Name"
+            required
           />
           <input
             type="text"
             className="register-input"
             placeholder="Last Name"
+            required
           />
           <input
             type="text"
             className="register-input"
             placeholder="User Name"
+            name="username"
+            onChange={handleChange}
+            required
           />
-          <input type="email" className="register-input" placeholder="Email" />
+          <input
+            type="email"
+            className="register-input"
+            placeholder="Email"
+            name="email"
+            onChange={handleChange}
+            required
+          />
           <input
             type="password"
             className="register-input"
             placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            required
           />
           <input
             type="password"
             className="register-input"
             placeholder="Confirm Password"
+            name="confirmPassword"
           />
 
           <span className="register-agreement">
@@ -41,7 +82,7 @@ const Register = () => {
             <b> data protection regulations</b>
           </span>
 
-          <button>CREATE</button>
+          <button onClick={handleRegister}>CREATE</button>
         </form>
       </div>
     </div>

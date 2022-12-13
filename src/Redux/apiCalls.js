@@ -13,7 +13,14 @@ import {
   updateProductStart,
   updateProductSuccess,
 } from "./Slices/Admin/productSlice";
-import { loginFailure, loginStart, loginSuccess } from "./Slices/userSlice";
+import {
+  loginFailure,
+  loginStart,
+  loginSuccess,
+  registrationFailure,
+  registrationStart,
+  registrationSuccess,
+} from "./Slices/userSlice";
 
 /* ==== Login ==== */
 export const login = async (dispatch, user) => {
@@ -24,6 +31,18 @@ export const login = async (dispatch, user) => {
     console.log(res.data);
   } catch (err) {
     dispatch(loginFailure());
+  }
+};
+
+/* ==== Register ==== */
+export const register = async (dispatch, user) => {
+  dispatch(registrationStart());
+  try {
+    const res = await publicRequest.post("/auth/register", user);
+    dispatch(registrationSuccess(res.data));
+    console.log(res.data);
+  } catch (err) {
+    dispatch(registrationFailure());
   }
 };
 

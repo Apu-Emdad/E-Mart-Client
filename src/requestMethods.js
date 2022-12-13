@@ -1,5 +1,6 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:5000/e-mart/";
+// const BASE_URL = "http://localhost:5000/e-mart/";
+const BASE_URL = "https://server-e-mart.vercel.app/e-mart/";
 
 const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user);
 const currentUser = user.currentUser;
