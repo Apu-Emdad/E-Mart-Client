@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../Assets/CSS/Login.css";
 import { login } from "../Redux/apiCalls";
-const Login = () => {
+const Login = ({ state }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ const Login = () => {
   const { isFetching, error, currentUser } = useSelector((state) => state.user);
   const location = useLocation();
 
-  const redirect_uri = location?.state?.prevPath || "/home";
+  const redirect_uri = location?.state?.from?.pathname || "/home";
 
-  console.log(location?.state?.prevPath);
+  console.log(location);
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };

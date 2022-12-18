@@ -63,7 +63,8 @@ const SingleProduct = () => {
   /* ==== Handling the cart with Redux Toolkit ====  */
   const handleCart = () => {
     if (!user) {
-      navigate("/login", { state: { prevPath: location.pathname } });
+      navigate("/login", { state: { from: location } });
+
       alert("Please Log In");
       return;
     }

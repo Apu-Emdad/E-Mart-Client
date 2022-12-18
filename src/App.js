@@ -18,6 +18,7 @@ import NewProduct from "./Pages/Dashboard/Dashboard-Pages/NewProduct";
 import { useSelector } from "react-redux";
 import OrderList from "./Pages/Dashboard/Dashboard-Pages/OrderList";
 import MyOrders from "./Pages/Dashboard/Dashboard-Pages/MyOrders";
+import UserRoute from "./Components/UserRoute";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -33,14 +34,23 @@ function App() {
           </Route>
           {/* <Route path="/products/:category" element={<ProductList />} /> */}
           <Route path="/product/:productId" element={<SingleProduct />} />
-          <Route
+          {/*  <Route
             path="/cart"
             element={user ? <Cart /> : <Navigate to="/login" />}
-          />
+          /> */}
           <Route
+            path="/cart"
+            element={
+              <UserRoute>
+                <Cart />
+              </UserRoute>
+            }
+          />
+          {/*    <Route
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
-          />
+          /> */}
+          <Route path="/login" element={<Login />} />
           <Route
             path="/register"
             element={user ? <Navigate to="/" /> : <Register />}
