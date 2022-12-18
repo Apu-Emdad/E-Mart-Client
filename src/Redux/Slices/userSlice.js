@@ -1,3 +1,4 @@
+import { SettingsEthernet } from "@material-ui/icons";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -12,6 +13,7 @@ const userSlice = createSlice({
   reducers: {
     loginStart: (state) => {
       state.isFetching = true;
+      state.error = false;
     },
     loginSuccess: (state, action) => {
       state.isFetching = false;
