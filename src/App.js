@@ -58,7 +58,32 @@ function App() {
 
           <Route path="success" element={<Success />} />
 
-          <Route path="/dashboard/*" element={<Dasboard />}>
+          {/*  <Route path="/dashboard/*" element={<Dasboard />}>
+            <Route path="*" element={<DashboardHome />} />
+            <Route path="home" element={<DashboardHome />} />
+            <Route path="users" element={<UserList />} />
+            <Route path="user/:id" element={<User />} />
+            <Route path="newUser" element={<NewUser />} />
+            <Route path="productTable" element={<ProductTable />} />
+
+            <Route
+              path="productDetails/:productId"
+              element={<ProductDetails />}
+            />
+            <Route path="newProduct" element={<NewProduct />} />
+            <Route path="orders" element={<OrderList />} />
+            <Route path="MyOrders" element={<MyOrders />} />
+          </Route>
+ */}
+
+          <Route
+            path="/dashboard/*"
+            element={
+              <UserRoute>
+                <Dasboard />
+              </UserRoute>
+            }
+          >
             <Route path="*" element={<DashboardHome />} />
             <Route path="home" element={<DashboardHome />} />
             <Route path="users" element={<UserList />} />
