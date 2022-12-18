@@ -59,7 +59,7 @@ function App() {
           <Route path="success" element={<Success />} />
 
           <Route path="/dashboard/*" element={<Dasboard />}>
-            <Route path="" element={<DashboardHome />} />
+            <Route path="*" element={<DashboardHome />} />
             <Route path="home" element={<DashboardHome />} />
             <Route path="users" element={<UserList />} />
             <Route path="user/:id" element={<User />} />
