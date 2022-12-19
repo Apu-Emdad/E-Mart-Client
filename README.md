@@ -6,6 +6,10 @@
       E-Mart is an MERN E-Commerce app which sells clothes of different sizes
       and colors
     </p>
+    <p>Live Link: https://e-mart12.netlify.app/home </p>
+    <p>Client(GitHub): https://github.com/Apu-Emdad/E-Mart-Client </p>
+    <p>Server(GitHub): https://e-mart12.netlify.app/home </p>
+
     <h2>Technologies</h2>
     <p>
       React JS, Node JS, MongoDB, Express JS, Mongoose, JWT token, Redux
