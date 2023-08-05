@@ -32,12 +32,8 @@ function App() {
           <Route path="/products/*" element={<ProductList />}>
             <Route path=":category " element={<ProductList />} />
           </Route>
-          {/* <Route path="/products/:category" element={<ProductList />} /> */}
+
           <Route path="/product/:productId" element={<SingleProduct />} />
-          {/*  <Route
-            path="/cart"
-            element={user ? <Cart /> : <Navigate to="/login" />}
-          /> */}
           <Route
             path="/cart"
             element={
@@ -46,10 +42,6 @@ function App() {
               </UserRoute>
             }
           />
-          {/*    <Route
-            path="/login"
-            element={user ? <Navigate to="/" /> : <Login />}
-          /> */}
           <Route path="/login" element={<Login />} />
           <Route
             path="/register"
@@ -57,24 +49,6 @@ function App() {
           />
 
           <Route path="success" element={<Success />} />
-
-          {/*  <Route path="/dashboard/*" element={<Dasboard />}>
-            <Route path="*" element={<DashboardHome />} />
-            <Route path="home" element={<DashboardHome />} />
-            <Route path="users" element={<UserList />} />
-            <Route path="user/:id" element={<User />} />
-            <Route path="newUser" element={<NewUser />} />
-            <Route path="productTable" element={<ProductTable />} />
-
-            <Route
-              path="productDetails/:productId"
-              element={<ProductDetails />}
-            />
-            <Route path="newProduct" element={<NewProduct />} />
-            <Route path="orders" element={<OrderList />} />
-            <Route path="MyOrders" element={<MyOrders />} />
-          </Route>
- */}
 
           <Route
             path="/dashboard/*"
@@ -101,13 +75,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-
-      {/* <ProductList /> */}
-      {/* <SingleProduct /> */}
-      {/* <Register /> */}
-      {/* <Login /> */}
-
-      {/* <Cart /> */}
     </div>
   );
 }
