@@ -1,0 +1,47 @@
+/* ===== ProductList css start ===== */
+.productList {
+  text-align: left;
+}
+.productList-title {
+  margin: 10px 20px;
+  font-weight: 700;
+}
+
+.productList-filter-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productList-filter {
+  margin: 10px 20px;
+  display: flex;
+}
+
+.productList-filter-text {
+  font-size: 20px;
+  margin-right: 20px;
+  align-self: center;
+}
+.productList-filter-select {
+  margin-right: 20px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 420px) {
+  .productList-filter {
+    flex-direction: column;
+    margin-right: 0px;
+  }
+  .productList-filter-text {
+    align-self: flex-start;
+  }
+  .productList-filter-select {
+    margin: 10px 0px 5px;
+
+    width: 100px;
+  }
+  .productList-sort {
+    align-self: flex-end;
+  }
+}

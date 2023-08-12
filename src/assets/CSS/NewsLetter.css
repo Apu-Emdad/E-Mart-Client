@@ -1,0 +1,52 @@
+/*====== Newsletter css  start======*/
+.newsletter-container {
+  height: 60vh;
+  background-color: #fcf5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.newsletter-title {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.newsletter-desc {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.newsletter-input-container {
+  width: 50%;
+  background-color: #fff;
+  /* height: 42px; */
+  display: flex;
+  /* justify-content: space-between; */
+  border: 1px solid lightgray;
+}
+
+@media screen and (max-width: 820px) {
+  .newsletter-input-container {
+    width: 80%;
+  }
+}
+
+.newsletter-input {
+  flex: 8;
+  border: none;
+  padding-left: 20px;
+  /* height: 40px; */
+}
+
+.newsletter-button {
+  flex: 1;
+  border: none;
+  background-color: teal;
+  color: white;
+  min-height: 100%;
+  height: 42px;
+}
+/*====== Newsletter css  end======*/

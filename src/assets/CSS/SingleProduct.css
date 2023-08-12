@@ -1,0 +1,138 @@
+.singleProduct-container {
+  display: flex;
+  padding: 50px;
+}
+.singleProduct-image {
+  flex: 1;
+  background: #ede9f4;
+  padding: 10px;
+}
+.singleProduct-image img {
+}
+.singleProduct-info {
+  flex: 1;
+  padding: 0px 50px;
+}
+.singleProduct-title {
+  font-weight: 200;
+  text-align: left;
+}
+
+.singleProduct-description {
+  text-align: left;
+  margin: 20px 0px;
+}
+
+.singleProduct-price {
+  font-weight: 100;
+  font-size: 40px;
+  /* display: block; */
+  /* text-align: left; */
+}
+
+.singleProduct-filter-container {
+  width: 70%;
+  text-align: left;
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.singleProduct-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 40%;
+}
+
+.singleProduct-filter-title {
+  font-size: 20px;
+  font-weight: 200;
+}
+.singleProduct-filter-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0px 5px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.singleProduct-filter-color-selected {
+  width: 30px;
+  height: 30px;
+  border: 2px solid blue;
+}
+
+.singleProduct-filter-size {
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid black;
+}
+.singleProduct-filter-message {
+  color: rgb(161, 7, 7);
+  width: 100%;
+}
+
+.singleProduct-add-container {
+  text-align: left;
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  align-items: center;
+}
+.singleProduct-amount-container {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.singleProduct-amount {
+  width: 30px;
+  height: 30px;
+  border: 1px solid teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 0px 5px;
+}
+
+.singleProduct-add-container button {
+  background-color: #fff;
+  padding: 15px;
+  border: 2px solid teal;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.singleProduct-add-container button:hover {
+  background-color: #f8f4f4;
+}
+/* ==== Media query starts ==== */
+@media screen and (max-width: 820px) {
+  .singleProduct-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .singleProduct-info {
+    padding: 20px 20px;
+  }
+  .singleProduct-title {
+    text-align: center;
+  }
+  .singleProduct-description {
+    margin: 10px 0px;
+  }
+  .singleProduct-filter-container {
+    width: 100%;
+    justify-content: space-around;
+    gap: 0px;
+  }
+  .singleProduct-add-container {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+/* ==== Media query end ==== */

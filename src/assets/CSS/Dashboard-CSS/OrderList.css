@@ -1,0 +1,41 @@
+.OrderList {
+  flex: 4;
+  margin: 10px;
+}
+.orderlist-update {
+  margin-right: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.orderList-customer {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.orderList-customer p {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  text-align: center;
+  padding: 0px;
+  color: rgba(0, 0, 0, 0.87);
+  border: none;
+  margin: 0;
+  margin-left: 5px;
+}
+.orderList-customer img {
+  width: 40px;
+  height: 40px;
+}
+
+.css-1ygcj2i-MuiTableCell-root,
+.css-1ndpvdd-MuiTableCell-root {
+  font-weight: 700 !important;
+}
