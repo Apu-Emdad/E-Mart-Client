@@ -7,7 +7,7 @@ import Login from "./Pages/Login";
 import Cart from "./Pages/Cart";
 import { BrowserRouter, Routes, Navigate, Route } from "react-router-dom";
 import Success from "./Pages/Success";
-import Dasboard from "./Pages/Dashboard/Dasboard";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Dashboard-Pages/DashboardHome";
 import UserList from "./Pages/Dashboard/Dashboard-Pages/UserList";
 import User from "./Pages/Dashboard/Dashboard-Pages/User";
@@ -54,7 +54,7 @@ function App() {
             path="/dashboard/*"
             element={
               <UserRoute>
-                <Dasboard />
+                <Dashboard />
               </UserRoute>
             }
           >
