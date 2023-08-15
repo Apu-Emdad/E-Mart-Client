@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 import { Badge } from "@material-ui/core";
@@ -12,19 +11,7 @@ import { logOut } from "../Redux/Slices/userSlice";
 import {
   LineStyle,
   ListAltOutlined,
-  Timeline,
-  TrendingUp,
-  PermIdentity,
   Storefront,
-  AttachMoney,
-  BarChart,
-  MailOutline,
-  DynamicFeed,
-  ChatBubbleOutline,
-  WorkOutline,
-  Report,
-  PersonAddOutlined,
-  AddCircleOutline,
   AccountCircleOutlined,
 } from "@material-ui/icons";
 
