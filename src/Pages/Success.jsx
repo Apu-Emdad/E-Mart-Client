@@ -6,9 +6,9 @@ import "../Assets/CSS/Success.css";
 import { resetCart } from "../Redux/Slices/cartSlice";
 const Success = () => {
   const location = useLocation();
-  const data = location.state.stripeData;
-  const cart = location.state.cart;
-  const orderId = location.state.orderId;
+  const data = location.state?.stripeData;
+  const cart = location.state?.cart;
+  const orderId = location.state?.orderId;
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   dispatch(resetCart());
