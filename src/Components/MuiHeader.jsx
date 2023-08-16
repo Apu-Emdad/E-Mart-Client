@@ -21,11 +21,16 @@ import {
   Menu as MenuIcon,
   Close,
   ShoppingCartOutlined,
+  LineStyle,
+  ListAltOutlined,
+  Storefront,
+  AccountCircleOutlined,
 } from "@material-ui/icons";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar } from "@material-ui/core";
+import { Avatar, ListItemIcon, styled } from "@material-ui/core";
+import { Logout } from "@mui/icons-material";
 const MuiHeader = () => {
   const totalOrders = useSelector((state) => state.cart.totalOrders);
   const user = useSelector((state) => state.user.currentUser);
@@ -35,14 +40,16 @@ const MuiHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const isWideScreen = useMediaQuery("(min-width: 960px)");
-  const drawerWidth = 240;
   const navigate = useNavigate();
 
   const handleOpenUserMenu = (event) => {
+    console.log("handleOpenUserMenu");
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseUserMenu = (event) => {
+  const handleCloseUserMenu = () => {
+    console.log("handleCloseUserMenu");
+
     setAnchorElUser(null);
   };
 
@@ -97,6 +104,26 @@ const MuiHeader = () => {
       </List>
     </Box>
   );
+  /* ==== Styled Component Starts ==== */
+  const TitleContainer = styled(Box)({
+    flexGrow: 1,
+    display: "flex",
+    justifyContent: isWideScreen ? "flex-start" : "center",
+  });
+  const Title = styled(Typography)({
+    fontSize: "40px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    paddingRight: !isWideScreen && "70px",
+    paddingLeft: isWideScreen && "8rem",
+  });
+
+  const NavItemContainer = styled(Box)({
+    display: isWideScreen ? "block" : "none",
+    paddingRight: "5rem",
+  });
+
+  /* ==== Styled Component Ends ==== */
 
   const NoUserNavbar = () => (
     <Box sx={{ display: "flex" }}>
@@ -107,35 +134,22 @@ const MuiHeader = () => {
         <Toolbar>
           <IconButton
             onClick={handleNoUserDrawerToggle}
-            sx={{ mr: 2, display: { md: "none" } }}
+            sx={{ mr: 2, display: isWideScreen && "none" }}
           >
             <MenuIcon />
           </IconButton>
-
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: "flex",
-              justifyContent: isWideScreen ? "flex-start" : "center",
-            }}
-          >
+          {/* ==== Title Starts ===== */}
+          <TitleContainer>
             <Link to="/home">
-              <Typography
-                variant="h6"
-                component="span"
-                sx={{
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  paddingRight: !isWideScreen && "70px",
-                  paddingLeft: isWideScreen && "8rem",
-                }}
-              >
+              <Title variant="h6" component="span">
                 E-Mart
-              </Typography>
+              </Title>
             </Link>
-          </Box>
+          </TitleContainer>
+          {/* ==== Title Ends ===== */}
 
-          <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {/* ==== Nav Item starts ==== */}
+          <NavItemContainer>
             {noUserNavItems.map((item) => (
               <Link key={item.name} to={item.route}>
                 <Button sx={{ color: "rgba(0, 0, 0, 0.55)" }}>
@@ -143,7 +157,8 @@ const MuiHeader = () => {
                 </Button>
               </Link>
             ))}
-          </Box>
+          </NavItemContainer>
+          {/* ==== Nav Item Ends ==== */}
         </Toolbar>
       </AppBar>
       <Box>
@@ -158,7 +173,7 @@ const MuiHeader = () => {
             display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
+              width: 240,
               height: "fit-content",
             },
           }}
@@ -178,33 +193,22 @@ const MuiHeader = () => {
         <Toolbar>
           <IconButton
             onClick={handleNoUserDrawerToggle}
-            sx={{ mr: 2, display: { md: "none" } }}
+            sx={{ mr: 2, display: isWideScreen && "none" }}
           >
             <MenuIcon />
           </IconButton>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: "flex",
-              justifyContent: isWideScreen ? "flex-start" : "center",
-            }}
-          >
+          {/* ==== Title Starts ===== */}
+          <TitleContainer>
             <Link to="/home">
-              <Typography
-                variant="h6"
-                component="span"
-                sx={{
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  paddingRight: !isWideScreen && "70px",
-                  paddingLeft: isWideScreen && "8rem",
-                }}
-              >
+              <Title variant="h6" component="span">
                 E-Mart
-              </Typography>
+              </Title>
             </Link>
-          </Box>
-          <Box sx={{ display: { xs: "none", md: "block" } }}>
+          </TitleContainer>
+          {/* ==== Title Ends ===== */}
+
+          {/* ==== Nav Item starts ==== */}
+          <NavItemContainer>
             <Link to="/products">
               <Button sx={{ color: "rgba(0, 0, 0, 0.55)" }}>Products</Button>
             </Link>
@@ -219,37 +223,91 @@ const MuiHeader = () => {
                 </Badge>
               </IconButton>
             </Link>
-
-            <IconButton>
-              <Avatar
-                src="https://i.ibb.co/sRr8kWj/avatar.png"
-                alt=""
-                onClick={handleOpenUserMenu}
-              />
+            <Button onClick={handleOpenUserMenu}>
+              <Typography variant="span" fontWeight="bold">
+                {user.username}
+              </Typography>
+            </Button>
+            <IconButton onClick={handleOpenUserMenu}>
+              <Avatar src="https://i.ibb.co/sRr8kWj/avatar.png" alt="" />
               <Menu
-                sx={{ mt: "45px" }}
+                sx={{ mt: "45px", left: "calc(100vw - 18rem) !important" }}
                 anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "bottom",
-                  horizontal: "right",
-                }}
-                keepMounted
+                // keepMounted
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
+                <Link to="/dashboard">
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <ListItemIcon>
+                      <LineStyle />
+                    </ListItemIcon>
+                    <ListItemText sx={{ color: "black" }}>
+                      My Dashboard
+                    </ListItemText>
+                  </MenuItem>
+                </Link>
+                {isAdmin ? (
+                  <div>
+                    <Link to="/dashboard/orders">
+                      <MenuItem onClick={handleCloseUserMenu}>
+                        <ListItemIcon>
+                          <ListAltOutlined />
+                        </ListItemIcon>
+                        <ListItemText sx={{ color: "black" }}>
+                          Orders
+                        </ListItemText>
+                      </MenuItem>
+                    </Link>
+                    <Link to="/dashboard/productTable">
+                      <MenuItem onClick={handleCloseUserMenu}>
+                        <ListItemIcon>
+                          <Storefront />
+                        </ListItemIcon>
+                        <ListItemText sx={{ color: "black" }}>
+                          Products
+                        </ListItemText>
+                      </MenuItem>
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Link to="/dashboard/myorders">
+                      <MenuItem onClick={handleCloseUserMenu}>
+                        <ListItemIcon>
+                          <ListAltOutlined />
+                        </ListItemIcon>
+                        <ListItemText sx={{ color: "black" }}>
+                          My Orders
+                        </ListItemText>
+                      </MenuItem>
+                    </Link>
+                    <Link to={`/dashboard/user/${user._id}`}>
+                      <MenuItem onClick={handleCloseUserMenu}>
+                        <ListItemIcon>
+                          <AccountCircleOutlined />
+                        </ListItemIcon>
+                        <ListItemText sx={{ color: "black" }}>
+                          Edit Profile
+                        </ListItemText>
+                      </MenuItem>
+                    </Link>
+                  </div>
+                )}
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">item 1</Typography>
-                </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">item 1</Typography>
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    sx={{ margin: "0 auto", fontWeight: "bold" }}
+                  >
+                    <Logout />
+                    &nbsp;Log Out
+                  </Button>
                 </MenuItem>
               </Menu>
             </IconButton>
-          </Box>
+          </NavItemContainer>
+          {/* ==== Nav Item Ends ==== */}
         </Toolbar>
       </AppBar>
       <Box>
@@ -264,7 +322,7 @@ const MuiHeader = () => {
             display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
+              width: 240,
               height: "fit-content",
             },
           }}
