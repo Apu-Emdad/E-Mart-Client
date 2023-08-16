@@ -62,7 +62,7 @@ const MuiHeader = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const noUserNavItems = [
+  const noUserDrawerItems = [
     {
       name: "Products",
       route: "/products",
@@ -77,23 +77,42 @@ const MuiHeader = () => {
     },
   ];
 
+  const userDrawerItems = [
+    {
+      name: "Products",
+      route: "/products",
+    },
+    {
+      name: "Casual",
+      route: "/products/casual",
+    },
+    {
+      name: "Warm",
+      route: "/products/warm",
+    },
+    {
+      name: "Formal",
+      route: "/products/formal",
+    },
+  ];
+
   /* ==== Styled Component Starts ==== */
   const TitleContainer = styled(Box)({
     flexGrow: 1,
     display: "flex",
-    justifyContent: isWideScreen ? "flex-start" : "center",
+    justifyContent: "flex-start",
   });
   const Title = styled(Typography)({
-    fontSize: "40px",
+    fontSize: "2rem",
     fontWeight: "bold",
     cursor: "pointer",
-    paddingRight: !isWideScreen && "70px",
-    paddingLeft: isWideScreen && "8rem",
+    // paddingRight: !isWideScreen && "10px",
+    paddingLeft: isWideScreen ? "8rem" : "0rem",
   });
 
   const NavItemContainer = styled(Box)({
     display: isWideScreen ? "block" : "none",
-    paddingRight: "5rem",
+    // paddingRight: "5rem",
   });
   /* ==== Styled Component Ends ==== */
 
@@ -107,16 +126,18 @@ const MuiHeader = () => {
           padding: "0px 10px",
         }}
       >
-        <Typography variant="h6" sx={{ my: 2, fontWeight: "Bold" }}>
-          E-mart
-        </Typography>
+        <Link to="/home">
+          <Typography variant="h6" sx={{ my: 2, fontWeight: "Bold" }}>
+            E-mart
+          </Typography>
+        </Link>
         <IconButton>
           <Close />
         </IconButton>
       </Box>
       <Divider />
       <List>
-        {noUserNavItems.map((item) => (
+        {noUserDrawerItems.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton
               sx={{ textAlign: "center" }}
@@ -140,16 +161,18 @@ const MuiHeader = () => {
           padding: "0px 10px",
         }}
       >
-        <Typography variant="h6" sx={{ my: 2, fontWeight: "Bold" }}>
-          E-mart
-        </Typography>
+        <Link to="/home">
+          <Typography variant="h6" sx={{ my: 2, fontWeight: "Bold" }}>
+            E-mart
+          </Typography>
+        </Link>
         <IconButton>
           <Close />
         </IconButton>
       </Box>
       <Divider />
       <List>
-        {/* {noUserNavItems.map((item) => (
+        {userDrawerItems.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton
               sx={{ textAlign: "center" }}
@@ -158,7 +181,7 @@ const MuiHeader = () => {
               <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
-        ))} */}
+        ))}
       </List>
     </Box>
   );
@@ -185,10 +208,9 @@ const MuiHeader = () => {
             </Link>
           </TitleContainer>
           {/* ==== Title Ends ===== */}
-
           {/* ==== Nav Item starts ==== */}
-          <NavItemContainer>
-            {noUserNavItems.map((item) => (
+          <NavItemContainer sx={{ paddingRight: "5rem" }}>
+            {noUserDrawerItems.map((item) => (
               <Link key={item.name} to={item.route}>
                 <Button sx={{ color: "rgba(0, 0, 0, 0.55)" }}>
                   {item.name}
@@ -199,26 +221,26 @@ const MuiHeader = () => {
           {/* ==== Nav Item Ends ==== */}
         </Toolbar>
       </AppBar>
-      <Box>
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", md: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: 240,
-              height: "fit-content",
-            },
-          }}
-        >
-          {NoUserDrawer}
-        </Drawer>
-      </Box>
+      {/* ==== Drawer starts ==== */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true,
+        }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: 240,
+            height: "fit-content",
+          },
+        }}
+      >
+        {NoUserDrawer}
+      </Drawer>
+      {/* ==== Drawer Ends ==== */}
     </Box>
   );
 
@@ -261,7 +283,10 @@ const MuiHeader = () => {
                 </Badge>
               </IconButton>
             </Link>
-            {/* ==== userMenu starts ====*/}
+          </NavItemContainer>
+          {/* ==== Nav Item Ends ==== */}
+          {/* ==== userMenu starts ====*/}
+          <Box sx={{ paddingRight: isWideScreen ? "5rem" : "0rem" }}>
             <Button
               onClick={handleOpenUserMenu}
               sx={{ paddingRight: "0px", paddingLeft: "20px" }}
@@ -274,7 +299,12 @@ const MuiHeader = () => {
               <Avatar src="https://i.ibb.co/sRr8kWj/avatar.png" />
             </Button>
             <Menu
-              sx={{ mt: "45px", left: "calc(100vw - 18rem) !important" }}
+              sx={{
+                mt: "45px",
+                left: isWideScreen
+                  ? "calc(100vw - 20rem) !important"
+                  : "calc(100vw - 14rem) !important",
+              }}
               anchorEl={anchorElUser}
               open={open}
               onClose={handleCloseUserMenu}
@@ -349,30 +379,29 @@ const MuiHeader = () => {
               </MenuItem>
             </Menu>
             {/* ==== userMenu ends ====*/}
-          </NavItemContainer>
-          {/* ==== Nav Item Ends ==== */}
+          </Box>
         </Toolbar>
       </AppBar>
-      <Box>
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: "block", md: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: 240,
-              height: "fit-content",
-            },
-          }}
-        >
-          {UserDrawer}
-        </Drawer>
-      </Box>
+      {/* ==== Drawer starts ==== */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true,
+        }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: 240,
+            height: "fit-content",
+          },
+        }}
+      >
+        {UserDrawer}
+      </Drawer>
+      {/* ==== Drawer ends ==== */}
     </Box>
   );
 
