@@ -1,7 +1,6 @@
 import { Add, Remove } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import "../Assets/CSS/Cart.css";
-import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +10,8 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect } from "react";
 import { userRequest } from "../requestMethods";
 import { resetCart } from "../Redux/Slices/cartSlice";
+import Header from "../Components/Header";
+import HeaderSpace from "../Components/HeaderSpace";
 const KEY = import.meta.env.VITE_STRIPE;
 
 const Cart = () => {
@@ -79,6 +80,7 @@ const Cart = () => {
   return (
     <div>
       <Header />
+      <HeaderSpace />
       <div className="cart">
         <h1 className="cart-title">My Cart</h1>
         {/* ==== cart top starts ==== */}
