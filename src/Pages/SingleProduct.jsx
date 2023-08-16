@@ -1,5 +1,5 @@
 import { Add, Remove } from "@material-ui/icons";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "../Assets/CSS/SingleProduct.css";
@@ -8,6 +8,7 @@ import NewsLetter from "../Components/NewsLetter";
 import { addProduct } from "../Redux/Slices/cartSlice";
 import { publicRequest } from "../requestMethods";
 import ObjectID from "bson-objectid";
+import HeaderSpace from "../Components/HeaderSpace";
 const SingleProduct = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
@@ -29,13 +30,14 @@ const SingleProduct = () => {
       try {
         const res = await publicRequest.get(`/products/find/${productId}`);
         setProduct(res.data);
+        // eslint-disable-next-line no-empty
       } catch {}
     };
 
     getProduct();
   }, [productId]);
 
-  /* ==== Handling the product quantitiy ==== */
+  /* ==== Handling the product quantity ==== */
   const handleQuantity = (type) => {
     if (type === "dec") {
       quantity > 1 && setQuantity(quantity - 1);
@@ -100,6 +102,7 @@ const SingleProduct = () => {
   return (
     <div>
       <Header />
+      <HeaderSpace />
       <div className="singleProduct-container">
         <div className="singleProduct-image">
           <img src={product.img} alt="" className="img-fluid" />
