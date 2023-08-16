@@ -1,10 +1,10 @@
-import React from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../Assets/CSS/ProductList.css";
 import Header from "../Components/Header";
 import NewsLetter from "../Components/NewsLetter";
 import Products from "../Components/Products";
+import HeaderSpace from "../Components/HeaderSpace";
 const ProductList = () => {
   const location = useLocation();
   const category = location.pathname.split("/")[2];
@@ -27,6 +27,7 @@ const ProductList = () => {
   return (
     <div className="productList">
       <Header />
+      <HeaderSpace />
       <h1 className="productList-title">
         {category ? category.toUpperCase() : "Products"}
       </h1>
