@@ -1,5 +1,4 @@
-import React from "react";
-import { Send } from "@material-ui/icons";
+import { Send } from "@mui/icons-material";
 import "../Assets/CSS/NewsLetter.css";
 
 const NewsLetter = () => {

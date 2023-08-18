@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "../../../Assets/CSS/Dashboard-CSS/ProductTable.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { DeleteOutline } from "@material-ui/icons";
+import { DeleteOutline } from "@mui/icons-material";
 import { productRows } from "../dummyData";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

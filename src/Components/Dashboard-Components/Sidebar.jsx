@@ -18,7 +18,7 @@ import {
   AccountCircleOutlined,
   ListAltOutlined,
   ExposureOutlined,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {

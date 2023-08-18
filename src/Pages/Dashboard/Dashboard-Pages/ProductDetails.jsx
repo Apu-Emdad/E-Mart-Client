@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../../Assets/CSS/Dashboard-CSS/ProductDetails.css";
 import Chart from "../../../Components/Dashboard-Components/Chart";
 import { productData } from "../dummyData";
-import { Publish } from "@material-ui/icons";
+import { Publish } from "@mui/icons-material";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProduct } from "../../../Redux/apiCalls.js";
