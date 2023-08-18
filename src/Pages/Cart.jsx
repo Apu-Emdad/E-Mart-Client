@@ -1,4 +1,4 @@
-import { Add, Remove } from "@material-ui/icons";
+import { Add, Remove } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import "../Assets/CSS/Cart.css";
 import NewsLetter from "../Components/NewsLetter";

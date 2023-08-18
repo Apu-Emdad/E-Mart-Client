@@ -1,6 +1,6 @@
 import React from "react";
 import "../../Assets/CSS/Dashboard-CSS/FeaturedInfo.css";
-import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
+import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
 
 const FeaturedInfo = () => {
   return (

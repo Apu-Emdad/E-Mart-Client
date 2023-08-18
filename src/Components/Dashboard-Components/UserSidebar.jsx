@@ -19,7 +19,7 @@ import {
   ListAltOutlined,
   ExposureOutlined,
   FavoriteBorderOutlined,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 

@@ -1,4 +1,4 @@
-import { SettingsEthernet } from "@material-ui/icons";
+import { SettingsEthernet } from "@mui/icons-material";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
