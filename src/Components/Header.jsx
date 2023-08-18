@@ -16,6 +16,9 @@ import {
   Badge,
   Menu,
   MenuItem,
+  Avatar,
+  ListItemIcon,
+  styled,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -25,12 +28,11 @@ import {
   ListAltOutlined,
   Storefront,
   AccountCircleOutlined,
+  ExitToApp,
 } from "@material-ui/icons";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Avatar, ListItemIcon, styled } from "@material-ui/core";
-import { Logout } from "@mui/icons-material";
 import { logOut } from "../Redux/Slices/userSlice";
 
 const Header = () => {
@@ -104,7 +106,7 @@ const Header = () => {
     justifyContent: "flex-start",
   });
   const Title = styled(Typography)({
-    fontSize: isWideScreen ? "2.5rem" : "1.8rem",
+    fontSize: isWideScreen ? "2.5rem" : "1.5rem",
     fontWeight: "bold",
     cursor: "pointer",
     // paddingRight: !isWideScreen && "10px",
@@ -364,7 +366,7 @@ const Header = () => {
                   sx={{ margin: "0 auto", fontWeight: "bold" }}
                   onClick={handleLogOut}
                 >
-                  <Logout />
+                  <ExitToApp />
                   &nbsp;Log Out
                 </Button>
               </MenuItem>
