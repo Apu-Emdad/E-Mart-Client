@@ -1,5 +1,4 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Grid, Box } from "@mui/material";
 import Slider from "react-slick";
 import { bannerData } from "../Assets/data";
 
@@ -18,26 +17,30 @@ const Banner = () => {
   };
 
   return (
-    <div className="mb-5">
+    <Box marginBottom="3rem">
       <Slider {...settings}>
         {bannerData.map((data) => (
-          <div key={data.id} className="banner-container container-fluid ">
-            <Row>
-              <Col md={6} className="banner-content banner-img ">
+          <Box key={data.id} className="banner-container ">
+            <Grid container>
+              <Grid item md={6} className="banner-content banner-img ">
                 <img src={data.img} alt="" className=" " />
-              </Col>
-              <Col md={6} className="banner-content banner-content-title">
-                <div className="p-5">
+              </Grid>
+              <Grid
+                md={6}
+                width="100%"
+                className="banner-content banner-content-title"
+              >
+                <Box padding="3rem">
                   <h1>{data.title}</h1>
                   <p>{data.desc}</p>
                   <button>Shop Now</button>
-                </div>
-              </Col>
-            </Row>
-          </div>
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
         ))}
       </Slider>
-    </div>
+    </Box>
   );
 };
 

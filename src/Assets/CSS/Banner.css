@@ -1,13 +1,12 @@
 /* ===== banner css ==== */
 .banner-container {
+  width: 100%;
 }
 
 .banner-content {
-  /* height: 80vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 50vh; */
 }
 .banner-img {
   background: radial-gradient(
@@ -51,5 +50,5 @@
 
 .slider-class {
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
