@@ -26,6 +26,7 @@ const Banner = () => {
                 <img src={data.img} alt="" className=" " />
               </Grid>
               <Grid
+                item
                 md={6}
                 width="100%"
                 className="banner-content banner-content-title"
