@@ -17,7 +17,7 @@ const Banner = () => {
   };
 
   return (
-    <Box marginBottom="3rem">
+    <Box marginBottom="1rem">
       <Slider {...settings}>
         {bannerData.map((data) => (
           <Box key={data.id} className="banner-container ">
