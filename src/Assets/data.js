@@ -39,6 +39,12 @@ export const categoryData = [
     title: "Formal",
     category: "formal",
   },
+  {
+    id: 4,
+    img: "https://i.ibb.co/2SY0Qxk/front-view-young-bearded-man-suit-straightening-his-tie-dark-wall.jpg",
+    title: "Elegance",
+    category: "elegance",
+  },
 ];
 
 export const popularProduct = [

@@ -1,4 +1,4 @@
-import React from "react";
+import { Grid } from "@mui/material";
 import { categoryData } from "../Assets/data";
 import CategoryItem from "./CategoryItem";
 
@@ -6,11 +6,11 @@ import "../Assets/CSS/Categories.css";
 
 const Categories = () => {
   return (
-    <div className="categories-container container-fluid justify-content-around row g-0   ">
+    <Grid spacing={1} container className="categories-container">
       {categoryData.map((data) => (
         <CategoryItem data={data} key={data.id} />
       ))}
-    </div>
+    </Grid>
   );
 };
 
