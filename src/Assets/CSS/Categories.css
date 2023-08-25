@@ -1,6 +1,6 @@
 /* ====== categories css start ======== */
 .categories-container {
-  /* height: 70vh; */
+  margin-bottom: 10px;
 }
 .category-item {
   position: relative;

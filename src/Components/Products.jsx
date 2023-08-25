@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import Product from "./Product";
+import { useEffect, useState } from 'react';
+import Product from './Product';
 
-import "../Assets/CSS/Product.css";
+import '../Assets/CSS/Product.css';
 
-import { publicRequest } from "../requestMethods";
-import { Grid } from "@mui/material";
+import { publicRequest } from '../requestMethods';
+import { Grid } from '@mui/material';
 
 const Products = ({ category, filters, sort }) => {
   const [products, setProducts] = useState([]);
@@ -29,7 +29,7 @@ const Products = ({ category, filters, sort }) => {
     return () => {
       // Function returned from useEffect is called on unmount
       // Here it'll abort the fetch
-      console.log("unmounted");
+      console.log('unmounted');
       abortController.abort();
     };
   }, [category]);
@@ -47,15 +47,15 @@ const Products = ({ category, filters, sort }) => {
   }, [category, filters, products]);
 
   useEffect(() => {
-    if (sort === "desc") {
+    if (sort === 'desc') {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => b.price - a.price)
       );
-    } else if (sort === "asc") {
+    } else if (sort === 'asc') {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => a.price - b.price)
       );
-    } else if (sort === "newest") {
+    } else if (sort === 'newest') {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => a.createdAt.localeCompare(b.createdAt))
       );
@@ -63,7 +63,7 @@ const Products = ({ category, filters, sort }) => {
   }, [sort]);
   return (
     <div>
-      <Grid container spacing={1}>
+      <Grid container padding="10px" spacing={2}>
         {filters
           ? filteredProducts.map((product) => (
               <Product product={product} key={product._id} />

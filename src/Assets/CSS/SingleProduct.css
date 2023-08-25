@@ -6,6 +6,9 @@
   flex: 1;
   background: #ede9f4;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .singleProduct-image img {
 }
@@ -26,8 +29,6 @@
 .singleProduct-price {
   font-weight: 100;
   font-size: 40px;
-  /* display: block; */
-  /* text-align: left; */
 }
 
 .singleProduct-filter-container {
