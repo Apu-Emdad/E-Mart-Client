@@ -5,9 +5,9 @@
 
 .product-content {
   background-color: #e3e9ea;
-  margin: 20px;
+  margin: 10px;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px 10px 0px 0px;
   margin-bottom: 0px;
 }
 
@@ -67,17 +67,21 @@
   transform: scale(1.5);
 }
 .product-title {
-  margin: 20px;
+  margin: 10px;
   margin-top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 0px 0px 10px 10px;
+  padding: 0px 20px;
 }
 .product-title .title {
-  font-size: 18px;
-  align-self: center;
-  color: #1515ba;
-  font-weight: 400;
+  font-size: 20px;
+  align-self: flex-start;
+  color: #333;
+  font-weight: 600;
+  /* padding: '0px 20px'; */
 }
 .product-title .price {
   font-weight: bold;
