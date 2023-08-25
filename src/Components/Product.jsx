@@ -8,7 +8,7 @@ import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
-  const { title, img, price, colors, _id } = product;
+  const { title, img, price, _id } = product;
 
   const Image = styled('img')({
     width: '100%',
@@ -41,10 +41,15 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
-      <div className="product-title">
-        <p className="title">{title}</p>
-        <p className="price">${price}</p>
-      </div>
+      <Link
+        to={`/product/${_id}`}
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
+        <div className="product-title">
+          <p className="title">{title}</p>
+          <p className="price">${price}</p>
+        </div>
+      </Link>
     </Grid>
   );
 };
