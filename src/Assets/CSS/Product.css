@@ -1,10 +1,6 @@
 /*======  product css start ======= */
 .product-container {
   position: relative;
-  /* cursor: pointer; */
-  /* background-color: #f5fbfd;
-     */
-  /* background-color: yellow; */
 }
 
 .product-content {
@@ -30,7 +26,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-
   width: 300px;
   height: 300px;
   border-radius: 20px;

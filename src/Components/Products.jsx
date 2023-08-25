@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { popularProduct } from "../Assets/data";
+import { useEffect, useState } from "react";
 import Product from "./Product";
 
 import "../Assets/CSS/Product.css";
-import axios from "axios";
+
 import { publicRequest } from "../requestMethods";
+import { Grid } from "@mui/material";
 
 const Products = ({ category, filters, sort }) => {
   const [products, setProducts] = useState([]);
@@ -33,51 +33,6 @@ const Products = ({ category, filters, sort }) => {
       abortController.abort();
     };
   }, [category]);
-  /* useEffect(() => {
-    const abortController = new AbortController();
-    const getProdcuts = async () => {
-      try {
-        const res = await axios.get(
-          category
-            ? `http://localhost:5000/e-mart/products?category=${category}`
-            : `http://localhost:5000/e-mart/products`,
-          { signal: abortController.signal } // Notice this line here
-        );
-        setProducts(res.data);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    getProdcuts();
-
-    return () => {
-      // Function returned from useEffect is called on unmount
-      // Here it'll abort the fetch
-      console.log("unmounted");
-      abortController.abort();
-    };
-  }, [category]); */
-
-  /* test code using boolean*/
-  /* useEffect(() => {
-    let isSet = true;
-    const getProducts = async () => {
-      try {
-        const res = await axios.get(
-          category
-            ? `http://localhost:5000/e-mart/products?category=${category}`
-            : `http://localhost:5000/e-mart/products`
-        );
-        isSet && setProducts(res.data);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    getProducts();
-    return () => {
-      isSet = false;
-    };
-  }, [category]); */
 
   useEffect(() => {
     if (filters) {
@@ -106,16 +61,9 @@ const Products = ({ category, filters, sort }) => {
       );
     }
   }, [sort]);
-  /*   console.log(filters);
-  console.log(filteredProducts);
-  console.log(sort); */
-  // console.log("category:", category);
-  console.log(filters);
-  console.log(products);
-
   return (
     <div>
-      <div className="container-fluid row justify-content-around g-0  ">
+      <Grid container spacing={1}>
         {filters
           ? filteredProducts.map((product) => (
               <Product product={product} key={product._id} />
@@ -123,7 +71,7 @@ const Products = ({ category, filters, sort }) => {
           : products.map((product) => (
               <Product product={product} key={product._id} />
             ))}
-      </div>
+      </Grid>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CategoryItem = ({ data }) => {
   const { title, img, category } = data;
   return (
-    <Grid item xs={6} sm={3} className="category-item">
+    <Grid item xs={6} md={3} className="category-item">
       <Link to={`/products/${category}`}>
         <img src={img} alt="" className="" />
         <div className="category-info">
