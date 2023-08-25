@@ -5,7 +5,7 @@
 
 .product-content {
   background-color: #e3e9ea;
-  margin: 10px;
+
   position: relative;
   border-radius: 10px 10px 0px 0px;
   margin-bottom: 0px;
@@ -67,7 +67,6 @@
   transform: scale(1.5);
 }
 .product-title {
-  margin: 10px;
   margin-top: 0px;
   display: flex;
   justify-content: space-between;
@@ -81,7 +80,6 @@
   align-self: flex-start;
   color: #333;
   font-weight: 600;
-  /* padding: '0px 20px'; */
 }
 .product-title .price {
   font-weight: bold;
