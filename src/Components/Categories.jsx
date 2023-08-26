@@ -8,7 +8,7 @@ const Categories = () => {
   return (
     <Grid
       spacing={1}
-      padding="0px 10px"
+      sx={{ padding: { md: '0px 10px', sm: '0px 0px' } }}
       container
       className="categories-container"
     >

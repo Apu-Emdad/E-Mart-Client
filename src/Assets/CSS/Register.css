@@ -5,7 +5,7 @@
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://i.ibb.co/ZWCRnbN/man-wearing-vr-glasses-with-purple-light-1.jpg");
+    url('https://i.ibb.co/ZWCRnbN/man-wearing-vr-glasses-with-purple-light-1.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -52,6 +52,13 @@
   color: white;
   text-align: center;
 }
+
+.register-link {
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 /* ==== Media Query Starts ==== */
 @media screen and (max-width: 820px) {
   .register-wrapper {

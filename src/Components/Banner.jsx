@@ -6,7 +6,6 @@ import '../Assets/CSS/Banner.css';
 
 const Banner = () => {
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,

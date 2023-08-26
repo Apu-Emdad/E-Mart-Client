@@ -1,11 +1,8 @@
-import React from "react";
-import "../../Assets/CSS/Dashboard-CSS/Sidebar.css";
+import '../../Assets/CSS/Dashboard-CSS/Sidebar.css';
 import {
   LineStyle,
   Timeline,
-  TrendingUp,
   PermIdentity,
-  Storefront,
   AttachMoney,
   BarChart,
   MailOutline,
@@ -13,15 +10,11 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
-  PersonAddOutlined,
-  AddCircleOutline,
-  AccountCircleOutlined,
-  ListAltOutlined,
   ExposureOutlined,
-  FavoriteBorderOutlined,
-} from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+  FavoriteBorderOutlined
+} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const UserSidebar = () => {
   const userId = useSelector((state) => state.user.currentUser._id);
