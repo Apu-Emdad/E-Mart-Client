@@ -1,29 +1,35 @@
+import styled from '@emotion/styled';
 import {
   FavoriteBorderOutlined,
   SearchOutlined,
-  ShoppingCartOutlined,
-} from "@mui/icons-material";
-import { Link } from "react-router-dom";
+  ShoppingCartOutlined
+} from '@mui/icons-material';
+import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
-  const { title, img, price, colors, _id } = product;
+  const { title, img, price, _id } = product;
+
+  const Image = styled('img')({
+    width: '100%',
+    display: 'block'
+  });
 
   return (
-    <div className="col-md-6 col-lg-4 col-sm-6  product-container  ">
+    <Grid item lg={4} md={6} xs={12} className="product-container ">
       <div className="product-content">
         <div className="product-image-container">
           <div className="product-img">
-            <img src={img} alt="" className="img-fluid d-block  " />
+            <Image src={img} alt="" />
           </div>
           <div className="product-square"></div>
-
           <div className="product-info">
             <div className="product-icon">
               <ShoppingCartOutlined />
             </div>
             <Link
               to={`/product/${_id}`}
-              style={{ textDecoration: "none", color: "black" }}
+              style={{ textDecoration: 'none', color: 'black' }}
             >
               <div className="product-icon">
                 <SearchOutlined />
@@ -34,12 +40,17 @@ const Product = ({ product }) => {
             </div>
           </div>
         </div>
+      </div>
+      <Link
+        to={`/product/${_id}`}
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
         <div className="product-title">
           <p className="title">{title}</p>
           <p className="price">${price}</p>
         </div>
-      </div>
-    </div>
+      </Link>
+    </Grid>
   );
 };
 

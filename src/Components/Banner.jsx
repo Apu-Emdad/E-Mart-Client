@@ -1,19 +1,19 @@
-import { Grid, Box } from "@mui/material";
-import Slider from "react-slick";
-import { bannerData } from "../Assets/data";
+import { Grid, Box } from '@mui/material';
+import Slider from 'react-slick';
+import { bannerData } from '../Assets/data';
 
-import "../Assets/CSS/Banner.css";
+import '../Assets/CSS/Banner.css';
 
 const Banner = () => {
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
     autoplay: true,
-    className: "slider-class",
+    className: 'slider-class'
   };
 
   return (

@@ -1,20 +1,20 @@
-import { Add, Remove } from "@mui/icons-material";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import "../Assets/CSS/SingleProduct.css";
-import Header from "../Components/Header";
-import NewsLetter from "../Components/NewsLetter";
-import { addProduct } from "../Redux/Slices/cartSlice";
-import { publicRequest } from "../requestMethods";
-import ObjectID from "bson-objectid";
-import HeaderSpace from "../Components/HeaderSpace";
+import { Add, Remove } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import '../Assets/CSS/SingleProduct.css';
+import Header from '../Components/Header';
+import NewsLetter from '../Components/NewsLetter';
+import { addProduct } from '../Redux/Slices/cartSlice';
+import { publicRequest } from '../requestMethods';
+import ObjectID from 'bson-objectid';
+import HeaderSpace from '../Components/HeaderSpace';
 const SingleProduct = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+  const [color, setColor] = useState('');
+  const [size, setSize] = useState('');
   const [colorAlert, setColorAlert] = useState(false);
   const [sizeAlert, setSizeAlert] = useState(false);
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const SingleProduct = () => {
 
   /* ==== Handling the product quantity ==== */
   const handleQuantity = (type) => {
-    if (type === "dec") {
+    if (type === 'dec') {
       quantity > 1 && setQuantity(quantity - 1);
     } else {
       setQuantity(quantity + 1);
@@ -52,7 +52,7 @@ const SingleProduct = () => {
       setColor(c);
       setColorAlert(false);
     } else {
-      setColor("");
+      setColor('');
     }
   };
 
@@ -65,13 +65,13 @@ const SingleProduct = () => {
   /* ==== Handling the cart with Redux Toolkit ====  */
   const handleCart = () => {
     if (!user) {
-      navigate("/login", { state: { from: location } });
+      navigate('/login', { state: { from: location } });
 
-      alert("Please Log In");
+      alert('Please Log In');
       return;
     }
     if (!color) {
-      alert("please select color");
+      alert('please select color');
       setColorAlert(true);
       return;
     } else {
@@ -79,7 +79,7 @@ const SingleProduct = () => {
     }
 
     if (!size) {
-      alert("please select size");
+      alert('please select size');
       setSizeAlert(true);
       return;
     } else {
@@ -94,7 +94,7 @@ const SingleProduct = () => {
         color,
         size,
         subtotal: product.price * quantity,
-        orderId: ObjectID().toHexString(),
+        orderId: ObjectID().toHexString()
       })
     );
   };
@@ -105,7 +105,7 @@ const SingleProduct = () => {
       <HeaderSpace />
       <div className="singleProduct-container">
         <div className="singleProduct-image">
-          <img src={product.img} alt="" className="img-fluid" />
+          <img src={product.img} alt="" />
         </div>
         <div className="singleProduct-info">
           <h1 className="singleProduct-title">{product.title}</h1>
@@ -123,15 +123,15 @@ const SingleProduct = () => {
 
               {product.color?.map(
                 (c) =>
-                  c !== "All" && (
+                  c !== 'All' && (
                     <div
                       key={c}
                       style={{ backgroundColor: c }}
                       onClick={() => handleColor(c)}
                       className={
                         color === c
-                          ? "singleProduct-filter-color singleProduct-filter-color-selected "
-                          : "singleProduct-filter-color "
+                          ? 'singleProduct-filter-color singleProduct-filter-color-selected '
+                          : 'singleProduct-filter-color '
                       }
                     />
                   )
@@ -159,7 +159,7 @@ const SingleProduct = () => {
                 </option>
                 {product.size?.map(
                   (s) =>
-                    s !== "ALL" && (
+                    s !== 'ALL' && (
                       <option
                         className="singleProduct-filter-size-option"
                         key={s}
@@ -176,7 +176,7 @@ const SingleProduct = () => {
               ) : (
                 <p
                   className="singleProduct-filter-message"
-                  style={{ visibility: "hidden" }}
+                  style={{ visibility: 'hidden' }}
                 >
                   This section is hidden
                 </p>
@@ -188,13 +188,13 @@ const SingleProduct = () => {
           <div className="singleProduct-add-container">
             <div className="singleProduct-amount-container">
               <Remove
-                onClick={() => handleQuantity("dec")}
-                style={{ cursor: "pointer" }}
+                onClick={() => handleQuantity('dec')}
+                style={{ cursor: 'pointer' }}
               />
               <span className="singleProduct-amount">{quantity}</span>
               <Add
-                onClick={() => handleQuantity("inc")}
-                style={{ cursor: "pointer" }}
+                onClick={() => handleQuantity('inc')}
+                style={{ cursor: 'pointer' }}
               />
             </div>
             <button onClick={handleCart}>ADD TO CART</button>
