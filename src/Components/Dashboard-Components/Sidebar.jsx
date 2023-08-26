@@ -1,5 +1,4 @@
-import React from "react";
-import "../../Assets/CSS/Dashboard-CSS/Sidebar.css";
+import '../../Assets/CSS/Dashboard-CSS/Sidebar.css';
 import {
   LineStyle,
   Timeline,
@@ -16,10 +15,9 @@ import {
   PersonAddOutlined,
   AddCircleOutline,
   AccountCircleOutlined,
-  ListAltOutlined,
-  ExposureOutlined,
-} from "@mui/icons-material";
-import { Link } from "react-router-dom";
+  ExposureOutlined
+} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (

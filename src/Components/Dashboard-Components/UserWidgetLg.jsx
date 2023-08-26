@@ -1,9 +1,8 @@
-import React from "react";
-import "../../Assets/CSS/Dashboard-CSS/WidgetLg.css";
+import '../../Assets/CSS/Dashboard-CSS/WidgetLg.css';
 
 const UserWidgetLg = () => {
   const Button = ({ type }) => {
-    return <button className={"widgetLgButton " + type}>{type}</button>;
+    return <button className={'widgetLgButton ' + type}>{type}</button>;
   };
   return (
     <div className="widgetLg">
@@ -52,7 +51,7 @@ const UserWidgetLg = () => {
               alt=""
               className="widgetLgImg"
             />
-            <span className="widgetLgName">Men's Suit</span>
+            <span className="widgetLgName">Men&apos;s Suit</span>
           </td>
           <td className="widgetLgDate">2 Dec 2022</td>
           <td className="widgetLgAmount">$974.00</td>
