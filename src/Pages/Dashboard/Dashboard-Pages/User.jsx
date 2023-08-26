@@ -1,25 +1,47 @@
-import React from "react";
-import "../../../Assets/CSS/Dashboard-CSS/User.css";
+import '../../../Assets/CSS/Dashboard-CSS/User.css';
 import {
   CalendarToday,
   LocationSearching,
   MailOutline,
   PermIdentity,
   PhoneAndroid,
-  Publish,
-} from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+  Publish
+} from '@mui/icons-material';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { userRequest } from '../../../requestMethods';
 
 const User = () => {
-  const user = useSelector((state) => state.user.currentUser);
+  const { id } = useParams();
+  const [user, setUser] = useState(
+    useSelector((state) => state.user.currentUser)
+  );
+
+  console.log('user:', user);
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await userRequest.get(`users/find/${id}`);
+        setUser(res.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    if (user.isAdmin && id !== user._id) {
+      getUser();
+    }
+  }, [id, user._id, user.isAdmin]);
+
   return (
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit User</h1>
-        <Link to="../newUser">
-          <button className="userAddButton">Create</button>
-        </Link>
+        {user.isAdmin && (
+          <Link to="../newUser">
+            <button className="userAddButton">Create</button>
+          </Link>
+        )}
       </div>
       <div className="userContainer">
         <div className="userShow">
@@ -30,7 +52,7 @@ const User = () => {
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Charles Babbage</span>
+              <span className="userShowUsername">{user.username}</span>
               <span className="userShowUserTitle">Mathematician</span>
             </div>
           </div>
@@ -38,7 +60,7 @@ const User = () => {
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">Babbage@1791</span>
+              <span className="userShowInfoTitle">{user.email}</span>
             </div>
             <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
@@ -51,7 +73,7 @@ const User = () => {
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">user@gmail.com</span>
+              <span className="userShowInfoTitle">{user.email}</span>
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
@@ -67,7 +89,7 @@ const User = () => {
                 <label>User name</label>
                 <input
                   type="text"
-                  placeholder="Babbgae@1791"
+                  placeholder={user.username}
                   className="userUpdateInput"
                 />
               </div>
@@ -75,7 +97,7 @@ const User = () => {
                 <label>Full Name</label>
                 <input
                   type="text"
-                  placeholder="Charles Babbage"
+                  placeholder={user.username}
                   className="userUpdateInput"
                 />
               </div>
@@ -83,7 +105,7 @@ const User = () => {
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="user@gmail.com"
+                  placeholder={user.email}
                   className="userUpdateInput"
                 />
               </div>
@@ -111,10 +133,10 @@ const User = () => {
                   src="https://i.ibb.co/sRr8kWj/avatar.png"
                   alt=""
                 />
-                <label for="file">
+                <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
                 </label>
-                <input type="file" id="file" style={{ display: "none" }} />
+                <input type="file" id="file" style={{ display: 'none' }} />
               </div>
               <button className="userUpdateButton">Update</button>
             </div>

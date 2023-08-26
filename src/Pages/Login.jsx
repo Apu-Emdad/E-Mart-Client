@@ -1,18 +1,19 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useLocation, useNavigate } from "react-router-dom";
-import "../Assets/CSS/Login.css";
-import { login } from "../Redux/apiCalls";
+import { useLocation, useNavigate } from 'react-router-dom';
+import '../Assets/CSS/Login.css';
+import { login } from '../Redux/apiCalls';
+import { Link } from 'react-router-dom';
 const Login = ({ state }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isFetching, error, currentUser } = useSelector((state) => state.user);
   const location = useLocation();
 
-  const redirect_uri = location?.state?.from?.pathname || "/home";
+  const redirect_uri = location?.state?.from?.pathname || '/home';
 
   console.log(location);
   const handleEmail = (e) => {
@@ -29,7 +30,11 @@ const Login = ({ state }) => {
     login(dispatch, { email, password });
   };
 
-  currentUser && navigate(redirect_uri, { replace: true });
+  useEffect(() => {
+    if (currentUser) {
+      navigate(redirect_uri, { replace: true });
+    }
+  }, [currentUser, navigate, redirect_uri]);
 
   return (
     <div className="login-container">
@@ -52,14 +57,14 @@ const Login = ({ state }) => {
           {error ? (
             <span>Wrong credentials!</span>
           ) : (
-            <span style={{ visibility: "hidden" }}>This part is hidden</span>
+            <span style={{ visibility: 'hidden' }}>This part is hidden</span>
           )}
           <a href="#" className="login-link">
-            CAN'T REMEMBER THE PASSWORD?
+            CAN&apos;T REMEMBER THE PASSWORD?
           </a>
-          <a href="/register" className="login-link">
+          <Link to="/register" className="login-link">
             CREATE A NEW ACCOUNT
-          </a>
+          </Link>
         </form>
       </div>
     </div>
