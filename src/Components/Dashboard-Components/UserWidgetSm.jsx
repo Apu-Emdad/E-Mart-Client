@@ -1,6 +1,5 @@
-import React from "react";
-import "../../Assets/CSS/Dashboard-CSS/WidgetSm.css";
-import { Visibility } from "@mui/icons-material";
+import '../../Assets/CSS/Dashboard-CSS/WidgetSm.css';
+import { Visibility } from '@mui/icons-material';
 
 const UserWidgetSm = () => {
   return (
@@ -44,7 +43,7 @@ const UserWidgetSm = () => {
             className="widgetSmImg"
           />
           <div className="widgetSmUser">
-            <span className="widgetSmUsername">Men's Suit</span>
+            <span className="widgetSmUsername">Men&apos;s Suit</span>
             <span className="widgetSmUserTitle">Top Ten</span>
           </div>
           <button className="widgetSmButton">

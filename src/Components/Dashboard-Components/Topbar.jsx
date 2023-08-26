@@ -1,7 +1,6 @@
-import React from "react";
-import { NotificationsNone, Language, Settings } from "@mui/icons-material";
-import "../../Assets/CSS/Dashboard-CSS/Topbar.css";
-import { Link } from "react-router-dom";
+import { NotificationsNone, Language, Settings } from '@mui/icons-material';
+import '../../Assets/CSS/Dashboard-CSS/Topbar.css';
+import { Link } from 'react-router-dom';
 const Topbar = () => {
   return (
     <div className="topbar">

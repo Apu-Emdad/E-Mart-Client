@@ -63,7 +63,11 @@ const Products = ({ category, filters, sort }) => {
   }, [sort]);
   return (
     <div>
-      <Grid container padding="10px" spacing={2}>
+      <Grid
+        container
+        spacing={2}
+        sx={{ padding: { md: '100px 10px', sm: '10px 0px' } }}
+      >
         {filters
           ? filteredProducts.map((product) => (
               <Product product={product} key={product._id} />

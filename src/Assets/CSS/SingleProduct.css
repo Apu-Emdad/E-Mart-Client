@@ -2,6 +2,7 @@
   display: flex;
   padding: 50px;
 }
+
 .singleProduct-image {
   flex: 1;
   background: #ede9f4;
@@ -11,6 +12,7 @@
   align-items: center;
 }
 .singleProduct-image img {
+  max-width: 100%;
 }
 .singleProduct-info {
   flex: 1;

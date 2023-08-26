@@ -1,13 +1,12 @@
-import React from "react";
-import "../../Assets/CSS/Dashboard-CSS/Chart.css";
+import '../../Assets/CSS/Dashboard-CSS/Chart.css';
 import {
   LineChart,
   Line,
   XAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+  ResponsiveContainer
+} from 'recharts';
 
 const Chart = ({ title, data, dataKey, grid }) => {
   return (

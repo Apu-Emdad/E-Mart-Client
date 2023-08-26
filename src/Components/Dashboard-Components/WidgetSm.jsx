@@ -1,6 +1,5 @@
-import React from "react";
-import "../../Assets/CSS/Dashboard-CSS/WidgetSm.css";
-import { Visibility } from "@mui/icons-material";
+import '../../Assets/CSS/Dashboard-CSS/WidgetSm.css';
+import { Visibility } from '@mui/icons-material';
 
 const WidgetSm = () => {
   return (
