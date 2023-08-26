@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import "../Assets/CSS/ProductList.css";
-import Header from "../Components/Header";
-import NewsLetter from "../Components/NewsLetter";
-import Products from "../Components/Products";
-import HeaderSpace from "../Components/HeaderSpace";
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import '../Assets/CSS/ProductList.css';
+import Header from '../Components/Header';
+import NewsLetter from '../Components/NewsLetter';
+import Products from '../Components/Products';
+import HeaderSpace from '../Components/HeaderSpace';
 const ProductList = () => {
   const location = useLocation();
-  const category = location.pathname.split("/")[2];
+  const category = location.pathname.split('/')[2];
 
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState("newest");
+  const [sort, setSort] = useState('newest');
 
   const handleFilters = (e) => {
     const value = e.target.value;
     setFilters({
       ...filters,
-      [e.target.name]: value,
+      [e.target.name]: value
     });
   };
 
@@ -29,7 +29,7 @@ const ProductList = () => {
       <Header />
       <HeaderSpace />
       <h1 className="productList-title">
-        {category ? category.toUpperCase() : "Products"}
+        {category ? category.toUpperCase() : 'Products'}
       </h1>
       <div className="productList-filter-container">
         {/* ==== Filter ===== */}

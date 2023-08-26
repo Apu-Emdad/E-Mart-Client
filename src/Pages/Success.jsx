@@ -1,9 +1,8 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import "../Assets/CSS/Success.css";
-import { resetCart } from "../Redux/Slices/cartSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import '../Assets/CSS/Success.css';
+import { resetCart } from '../Redux/Slices/cartSlice';
 const Success = () => {
   const location = useLocation();
   const data = location.state?.stripeData;
@@ -16,11 +15,11 @@ const Success = () => {
   return (
     <div
       style={{
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}
     >
       {orderId

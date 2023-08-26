@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import "../Assets/CSS/Register.css";
-import { register } from "../Redux/apiCalls";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import '../Assets/CSS/Register.css';
+import { register } from '../Redux/apiCalls';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [inputs, setInputs] = useState({});
@@ -20,11 +21,11 @@ const Register = () => {
     const user = {
       username: inputs.username,
       email: inputs.email,
-      password: inputs.password,
+      password: inputs.password
     };
     // console.log(user);
     register(dispatch, user);
-    navigate("/home");
+    navigate('/home');
   };
 
   return (
@@ -78,12 +79,17 @@ const Register = () => {
 
           <span className="register-agreement">
             I hereby consent to the processing of the personal data that I have
-            provided and declare my agreement with the{" "}
-            <b> data protection regulations</b>
+            provided and declare my agreement with the
+            <b>&nbsp;data protection regulations</b>
           </span>
 
           <button onClick={handleRegister}>CREATE</button>
         </form>
+        <br />
+        <br />
+        <Link to="/login" className="register-link">
+          Already registered? Please Login
+        </Link>
       </div>
     </div>
   );

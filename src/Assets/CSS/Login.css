@@ -1,7 +1,7 @@
 .login-container {
   width: 100vw;
   height: 100vh;
-  background: url("https://i.ibb.co/LSHBL1X/virtual-assistant-technology-circle-with-black-man-using-transparent-screen-digital-remix.jpg");
+  background: url('https://i.ibb.co/LSHBL1X/virtual-assistant-technology-circle-with-black-man-using-transparent-screen-digital-remix.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -44,7 +44,7 @@
 
 .login-link {
   font-size: 14px;
-  text-decoration: underlined;
+  text-decoration: underline;
 }
 
 /* ====== Media Query ===== */
