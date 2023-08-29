@@ -43,20 +43,25 @@ function App() {
             <Route path="/products/*" element={<ProductList />}>
               <Route path=":category " element={<ProductList />} />
             </Route>
-
             <Route path="/product/:productId" element={<SingleProduct />} />
-            <Route path="/cart" element={<UserRoute> <Cart /> </UserRoute>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
-            <Route path="success" element={<UserRoute><Success /></UserRoute>} />
 
+            {/* <Route path='/*' element={<UserRoute />}>
+              <Route path="cart" element={<Cart />} />
+              <Route path="success" element={<Success />} />
+            </Route> */}
 
+            <Route path="/cart" element={<UserRoute> <Cart /> </UserRoute>} />
+            <Route path="/success" element={<UserRoute><Success /></UserRoute>} />
 
+            {/* ==== User Dashboard Starts ==== */}
             <Route path="/dashboard/*" element={<UserRoute> <Dashboard /> </UserRoute>} >
               <Route path="*" element={<DashboardHome />} />
               <Route path="home" element={<DashboardHome />} />
               <Route path="user/:id" element={<User />} />
               <Route path="MyOrders" element={<MyOrders />} />
+
               {/* ====Admin Route starts ==== */}
               <Route path="users" element={<AdminRoute> <UserList /> </AdminRoute>} />
               <Route path="orders" element={<AdminRoute><OrderList /></AdminRoute>} />
@@ -64,11 +69,9 @@ function App() {
               <Route path="newUser" element={<AdminRoute><NewUser /></AdminRoute>} />
               <Route path="productDetails/:productId" element={<AdminRoute><ProductDetails /></AdminRoute>} />
               <Route path="newProduct" element={<AdminRoute><NewProduct /></AdminRoute>} />
-
-
               {/* ====Admin Route ends ==== */}
-
             </Route>
+            {/* ==== User Dashboard Ends ==== */}
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
