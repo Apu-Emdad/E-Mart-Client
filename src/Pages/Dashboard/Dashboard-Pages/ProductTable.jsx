@@ -1,24 +1,26 @@
-import { React, useState } from "react";
+
 import "../../../Assets/CSS/Dashboard-CSS/ProductTable.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
-import { productRows } from "../dummyData";
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { deleteProduct, getProducts } from "../../../Redux/apiCalls";
 
 const ProductTable = () => {
-  const [data, setData] = useState(productRows);
+
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
 
   useEffect(() => {
     getProducts(dispatch);
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleDelete = (id) => {
-    deleteProduct(id, dispatch);
+    alert('This feature is currently unavailable for security purpose. Your visit is always appreciated.')
+    // deleteProduct(id, dispatch);
   };
 
   const columns = [

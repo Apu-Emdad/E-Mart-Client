@@ -371,8 +371,8 @@ const Header = () => {
                 </Button>
               </MenuItem>
             </Menu>
-            {/* ==== userMenu ends ====*/}
           </Box>
+          {/* ==== userMenu ends ====*/}
         </Toolbar>
       </AppBar>
       {/* ==== Drawer starts ==== */}
