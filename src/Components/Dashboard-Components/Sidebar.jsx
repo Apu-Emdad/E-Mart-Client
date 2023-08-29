@@ -15,7 +15,7 @@ import {
   PersonAddOutlined,
   AddCircleOutline,
   AccountCircleOutlined,
-  ExposureOutlined
+  ExposureOutlined,
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 

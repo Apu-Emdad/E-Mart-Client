@@ -5,13 +5,7 @@ import SingleProduct from './Pages/SingleProduct';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Cart from './Pages/Cart';
-import {
-  BrowserRouter,
-  Routes,
-  Navigate,
-  Route,
-  useLocation
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Navigate, Route, useLocation } from 'react-router-dom';
 import Success from './Pages/Success';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import DashboardHome from './Pages/Dashboard/Dashboard-Pages/DashboardHome';
@@ -26,6 +20,7 @@ import OrderList from './Pages/Dashboard/Dashboard-Pages/OrderList';
 import MyOrders from './Pages/Dashboard/Dashboard-Pages/MyOrders';
 import UserRoute from './Components/UserRoute';
 import { useEffect } from 'react';
+import AdminRoute from './Components/Dashboard-Components/AdminRoute';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -50,44 +45,29 @@ function App() {
             </Route>
 
             <Route path="/product/:productId" element={<SingleProduct />} />
-            <Route
-              path="/cart"
-              element={
-                <UserRoute>
-                  <Cart />
-                </UserRoute>
-              }
-            />
+            <Route path="/cart" element={<UserRoute> <Cart /> </UserRoute>} />
             <Route path="/login" element={<Login />} />
-            <Route
-              path="/register"
-              element={user ? <Navigate to="/" /> : <Register />}
-            />
+            <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
+            <Route path="success" element={<UserRoute><Success /></UserRoute>} />
 
-            <Route path="success" element={<Success />} />
 
-            <Route
-              path="/dashboard/*"
-              element={
-                <UserRoute>
-                  <Dashboard />
-                </UserRoute>
-              }
-            >
+
+            <Route path="/dashboard/*" element={<UserRoute> <Dashboard /> </UserRoute>} >
               <Route path="*" element={<DashboardHome />} />
               <Route path="home" element={<DashboardHome />} />
-              <Route path="users" element={<UserList />} />
               <Route path="user/:id" element={<User />} />
-              <Route path="newUser" element={<NewUser />} />
-              <Route path="productTable" element={<ProductTable />} />
-
-              <Route
-                path="productDetails/:productId"
-                element={<ProductDetails />}
-              />
-              <Route path="newProduct" element={<NewProduct />} />
-              <Route path="orders" element={<OrderList />} />
               <Route path="MyOrders" element={<MyOrders />} />
+              {/* ====Admin Route starts ==== */}
+              <Route path="users" element={<AdminRoute> <UserList /> </AdminRoute>} />
+              <Route path="orders" element={<AdminRoute><OrderList /></AdminRoute>} />
+              <Route path="productTable" element={<AdminRoute><ProductTable /></AdminRoute>} />
+              <Route path="newUser" element={<AdminRoute><NewUser /></AdminRoute>} />
+              <Route path="productDetails/:productId" element={<AdminRoute><ProductDetails /></AdminRoute>} />
+              <Route path="newProduct" element={<AdminRoute><NewProduct /></AdminRoute>} />
+
+
+              {/* ====Admin Route ends ==== */}
+
             </Route>
           </Routes>
         </ScrollToTop>

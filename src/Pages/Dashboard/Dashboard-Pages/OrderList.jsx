@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../Assets/CSS/Dashboard-CSS/OrderList.css";
 import {
   Table,
@@ -18,16 +17,22 @@ const OrderList = () => {
   const [orderId, setOrderId] = useState("");
   const [status, setStatus] = useState("");
 
+
+  const getOrders = async () => {
+    try {
+      const res = await userRequest.get("/orders");
+      console.log(res.data);
+      setOrders(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    const getOrders = async () => {
-      try {
-        const res = await userRequest.get("/orders");
-        console.log(res.data);
-        setOrders(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    getOrders();
+  }, []);
+
+  useEffect(() => {
     const updateOrders = async () => {
       try {
         const res = await userRequest.put(`/orders/${orderId}`, {
@@ -39,7 +44,7 @@ const OrderList = () => {
         console.log(err);
       }
     };
-    getOrders();
+
     updateOrders();
   }, [orderId, status]);
 
