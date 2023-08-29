@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../Assets/CSS/Dashboard-CSS/OrderList.css";
 import {
   Table,
