@@ -47,11 +47,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
 
-            {/* <Route path='/*' element={<UserRoute />}>
-              <Route path="cart" element={<Cart />} />
-              <Route path="success" element={<Success />} />
-            </Route> */}
-
             <Route path="/cart" element={<UserRoute> <Cart /> </UserRoute>} />
             <Route path="/success" element={<UserRoute><Success /></UserRoute>} />
 
@@ -70,6 +65,7 @@ function App() {
               <Route path="productDetails/:productId" element={<AdminRoute><ProductDetails /></AdminRoute>} />
               <Route path="newProduct" element={<AdminRoute><NewProduct /></AdminRoute>} />
               {/* ====Admin Route ends ==== */}
+
             </Route>
             {/* ==== User Dashboard Ends ==== */}
           </Routes>
